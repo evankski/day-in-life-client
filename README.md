@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# A day in the life
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# What is it?
+A day in the life is a website that makes photo sharing more engaging. This app shows you a feed of different users, with a slideshow of their posts, rather than a feed of random posts from users. This is based off the idea of engaging with the profile of users, to get a more in depth view of what is going on in a day in the life of the individual person. Once clicking on their profile, you will be given a list of all the photo's they've shared. All of these images will be clickable, allowing you to view the picture and comment on it. 
 
-## Available Scripts
+# API Choice
+The API we chose to use is Cloudinary. We will be using this API to allow users to upload photos to their feed.
 
-In the project directory, you can run:
+# Restful Routing Chart
 
-### `npm start`
+| **URL** | **HTTP Verb** |
+|------------|-------------|
+| /         | GET         
+| /         | POST        
+| /         | GET  
+| /         | POST 
+| /         | GET
+| /         | POST
+| /         | POST 
+| /         | GET   
+| /         | POST
+| /         | GET              
+| /         | POST    
+| /         | GET  
+| /         | PUT 
+| /         | GET
+| /         | DELETE
+| /         | POST
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Wireframes
 
-### `npm test`
+# User Stories
+- As a user without an account, I would like to register with my name, email, and password.
+- As a user without an account, I would like to see a page that explains what a day in the life is, and how it would be useful.
+- As a user who finished registration, I would like to be able to sign into my created account.
+- As a user who is signed in, I would like to be able to change my password.
+- As a user who is signed in, I would like to be able to sign out of my account.
+- As a user I want to post photos to my profile, so I can see and share them later. 
+- As a user I would like to edit any post I have already made.
+- As a user I would like to delete any post I have already made.
+- As a user I want to be the only one who can edit or delete my post.
+- As a user I want to click on others profiles, so I can see the posts they've made.
+- As a user I want to click on an individual picture of another user to see more information.
+- As a user I would like to comment on a individual picture to share my thoughts.
+- As a user I would like to be able to delete a comment I wrote.
+- As a user I would like to be able to edit a comment I wrote.
+# MVP goals
+- Sign up and sign in functionality.
+- User authentication with encrpyted passwords.
+- CRUD functionality for a users post
+- CRUD for comments on posts.
+- User autherization for comment update and delete.
+- User autherization for post update and delete.
+- Layout for signed in user home page showing all users with a slideshow of their pictures.
+- Layout for unregistered user home page showing the concept of the app, and how it would be useful.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Stretch Goals
+- Add private profiles
+- Add private photos
+- Have the layout of the signed in user resemble a polaroid.
