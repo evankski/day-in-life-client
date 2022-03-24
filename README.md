@@ -12,16 +12,17 @@ The API we chose to use is Cloudinary. We will be using this API to allow users 
 | **URL** | **HTTP Verb** |
 |------------|-------------|
 | /         | GET         
-| /         | POST        
-| /         | GET  
-| /         | POST 
-| /         | GET
-| /         | POST
-| /         | POST 
-| /         | GET   
-| /         | POST
-| /         | GET              
-| /         | POST    
+| /about    | GET
+| /login   | GET 
+| /register   | GET
+| /profiles/:id   | GET
+| /pictures/:id  | GET
+| /feed   | GET
+| /pictures/new   | GET  
+| /api-v1/users/register | POST
+| /api-v1/users/login  | POST
+| /api-v1/pictures   | POST
+| /api         | PUT
 | /         | GET  
 | /         | PUT 
 | /         | GET
@@ -57,7 +58,6 @@ The API we chose to use is Cloudinary. We will be using this API to allow users 
 - As a user without an account, I would like to register with my name, email, and password.
 - As a user without an account, I would like to see a page that explains what a day in the life is, and how it would be useful.
 - As a user who finished registration, I would like to be able to sign into my created account.
-- As a user who is signed in, I would like to be able to change my password.
 - As a user who is signed in, I would like to be able to sign out of my account.
 - As a user I want to post photos to my profile, so I can see and share them later. 
 - As a user I would like to edit any post I have already made.
@@ -82,3 +82,4 @@ The API we chose to use is Cloudinary. We will be using this API to allow users 
 - Add private profiles
 - Add private photos
 - Have the layout of the signed in user resemble a polaroid.
+- Change password
