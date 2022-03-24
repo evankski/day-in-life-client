@@ -1,4 +1,5 @@
 # A day in the life
+Link to server repository https://github.com/danieldenton/day-in-life-server
 
 # What is it?
 A day in the life is a website that makes photo sharing more engaging. This app shows you a feed of different users, with a slideshow of their posts, rather than a feed of random posts from users. This is based off the idea of engaging with the profile of users, to get a more in depth view of what is going on in a day in the life of the individual person. Once clicking on their profile, you will be given a list of all the photo's they've shared. All of these images will be clickable, allowing you to view the picture and comment on it. 
