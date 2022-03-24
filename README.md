@@ -30,6 +30,28 @@ The API we chose to use is Cloudinary. We will be using this API to allow users 
 
 # Wireframes
 
+<details>
+<summary>Click to show</summary>
+
+ - About us page
+ ![About us page](./assets/AboutUs.png) 
+ - Sign up page
+ ![Sign up page](./assets/SignUp.png) 
+ - Login page
+ ![Sign in page](./assets/Login.png) 
+ - Public landing page
+ ![Public landing page](./assets/PublicLanding.png) 
+ - Public feed page
+ ![Public feed page](./assets/PublicFeed.png) 
+ - Profile page
+ ![Profile page](./assets/Profile.png) 
+ - Details page
+ ![Details page](./assets/Details.png) 
+</details>
+
+# ERD
+![ERD](./assets/ERD.png)
+
 # User Stories
 - As a user without an account, I would like to register with my name, email, and password.
 - As a user without an account, I would like to see a page that explains what a day in the life is, and how it would be useful.
