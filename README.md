@@ -1,6 +1,6 @@
 # A Day in the Life
 
-Link to server repository https://github.com/danieldenton/day-in-life-server
+A day in the life is a MERN stack application. Link to server repository https://github.com/danieldenton/day-in-life-server
 
 # What is it?
 
@@ -8,23 +8,39 @@ Do you ever miss the early days of social media? When each application focused m
 
 # API Choice
 
-The API we chose to use is Cloudinary. We will be using this API to allow users to upload photos to their feed.
+The API we chose to use is Cloudinary. We will be using this API to allow users to upload photos to their feed. Cloudinary will allow a user to upload a photo and add it to the database. We then receive JSON data that allows us to display the image that was uploaded.
 
-# Restful Routing Chart
+# Restful Routing Chart - back-end
 
 | **CRUD** | **URL**                | **DESCRIPTION**                         |
 | -------- | ---------------------- | --------------------------------------- |
-| POST     | /api-v1/users/register |                                         |
-| POST     | /api-v1/users/login    |                                         |
-| GET      | /api-v1/users/:id      | user profile age                        |
-| GET      | /api-v1/users          | public feed of user slideshows          |
-| POST     | /api-v1/pictures       | picture post form                       |
-| GET      | /api-v1/pictures/:id   | individual picture w comments & subdocs |
-| PUT      | /api-v1/pictures/:id   | individual w comments & subdocs edits   |
-| DELETE   | /api-v1/pictures/:id   | delete individula picture post          |
-| POST     | /api-v1/comments       | add comments to an individual post      |
-| PUT      | /api-v1/comments/:id   | edit comments                           |
-| DELETE   | /api-v1/comments/:id   | delete comments                         |
+| POST     | /api-v1/users/register | Adds a new user to database             |
+| POST     | /api-v1/users/login    | Logs in the user, sends back a token  |
+| GET      | /api-v1/users/:id      | Reading user document corresponding to ID |
+| GET      | /api-v1/feed       | Reads all user documents with picture subdocs|
+| POST     | /api-v1/pictures | Creates picture subdoc in current user document|
+| GET      | /api-v1/pictures/:id   | Read picture document corresponding to ID |
+| PUT      | /api-v1/pictures/:id   | Updates picture caption corresponding to ID|
+| DELETE   | /api-v1/pictures/:id | Delete individul picture post corresponding to ID|
+| POST     | /api-v1/comments       | Add comments to an individual picture    |
+| PUT      | /api-v1/comments/:id   | Updates comment corresponding to ID       |
+| DELETE   | /api-v1/comments/:id   | Deletes comment corresponding to ID       |
+
+# Restful Routing Chart - front-end
+
+| **CRUD** | **URL**                | **DESCRIPTION**                         |
+| -------- | ---------------------- | --------------------------------------- |
+| GET     | /        |  Renders a landing page                               |
+| GET     | /login   | Renders a login form                                  |
+| GET      | /register     | Renders a register form                       |
+| GET      | /about         | Renders an About page with bio components     |
+| GET     | /feed     | Renders all users with slideshow component            |
+| GET      | /profiles/:id  | Renders specific user with all photo component |
+| GET      | /pictures/:id   | Renders photo detail page with comments component|
+| GET      | /pictures/new   | Renders a photo upload form |
+| GET      | /pictures/:id/edit   | Renders a caption update form |
+
+
 
 # Wireframes
 
@@ -72,7 +88,6 @@ The API we chose to use is Cloudinary. We will be using this API to allow users 
 - Sign up and sign in functionality.
 - User authentication with encrpyted passwords.
 - CRUD functionality for a users post
-- CRUD for comments on posts.
 - User autherization for comment update and delete.
 - User autherization for post update and delete.
 - Layout for signed in user home page showing all users with a slideshow of their pictures.
@@ -84,3 +99,5 @@ The API we chose to use is Cloudinary. We will be using this API to allow users 
 - Add private photos
 - Have the layout of the signed in user resemble a polaroid.
 - Change password
+- CRUD for comments on posts.
+- Add ability to favorite a user
