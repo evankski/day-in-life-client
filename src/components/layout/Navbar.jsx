@@ -11,7 +11,7 @@ export default function Navbar ({ handleLogout, currentUser }) {
             </Link>
         </>
     )
-
+        const philIsCool = ["yeah"]
     // if the user is logged out
     const loggedOut = (
         <>
