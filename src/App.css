@@ -1,4 +1,23 @@
 .App {
   text-align: center;
   /* background-color: powderblue; */
+
+}
+.nav-link {
+  /* TRBL */
+  padding: 0px 10px 0px 10px;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+nav {
+  padding: 0px;
+  margin: 0px;
 }

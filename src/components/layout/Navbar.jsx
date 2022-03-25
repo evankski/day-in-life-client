@@ -5,8 +5,8 @@ export default function Navbar ({ handleLogout, currentUser }) {
     const loggedIn = (
         <>
             {/* if the user is logged in */}
-            <Link to='/feed'>Feed</Link>
-            <Link to='/'>
+            <Link to='/feed' className='nav-link'>Feed</Link>
+            <Link to='/' className='nav-link'>
                 <span onClick={handleLogout}>Log Out</span>
             </Link>
         </>
@@ -15,20 +15,20 @@ export default function Navbar ({ handleLogout, currentUser }) {
     const loggedOut = (
         <>
             {/* if the user is logged out */}
-            <Link to='/register'>Sign Up</Link>
-            <Link to='/login'>Log In</Link>
+            <Link to='/register' className='nav-link'>Sign Up</Link>
+            <Link to='/login' className='nav-link'>Log In</Link>
         </>
     )
 
     return (
         <nav>
-            <Link to='/'>A Day in the Life</Link>
+            <Link to='/' className='nav-link'>A Day in the Life</Link>
             {/* for ease of ues navigating during development */}
 
-            <Link to='/about'>  About.jsx  </Link>
-            <Link to='/feed'>  Feed.jsx  </Link>
-            <Link to='/profiles/:id'>  Profile.jsx  </Link>
-            <Link to='/pictures/:id'>  Picture.jsx  </Link>
+            <Link to='/about' className='nav-link'>  About  </Link>
+            <Link to='/feed' className='nav-link'>  Feed  </Link>
+            <Link to='/profiles/:id' className='nav-link'>  Profile  </Link>
+            <Link to='/pictures/:id' className='nav-link'>  Picture  </Link>
             
             {/* for ease of ues navigating during development */}
 
