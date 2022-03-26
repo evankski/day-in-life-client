@@ -12,33 +12,33 @@ The API we chose to use is Cloudinary. We will be using this API to allow users 
 
 # Restful Routing Chart - back-end
 
-| **CRUD** | **URL**                | **DESCRIPTION**                         |
-| -------- | ---------------------- | --------------------------------------- |
-| POST     | /api-v1/users/register | Adds a new user to database             |
-| POST     | /api-v1/users/login    | Logs in the user, sends back a token  |
-| GET      | /api-v1/users/:id      | Reading user document corresponding to ID |
-| GET      | /api-v1/feed       | Reads all user documents with picture subdocs|
-| POST     | /api-v1/pictures | Creates picture subdoc in current user document|
-| GET      | /api-v1/pictures/:id   | Read picture document corresponding to ID |
-| PUT      | /api-v1/pictures/:id   | Updates picture caption corresponding to ID|
-| DELETE   | /api-v1/pictures/:id | Delete individul picture post corresponding to ID|
-| POST     | /api-v1/comments       | Add comments to an individual picture    |
-| PUT      | /api-v1/comments/:id   | Updates comment corresponding to ID       |
-| DELETE   | /api-v1/comments/:id   | Deletes comment corresponding to ID       |
+| **CRUD** | **URL**                | **DESCRIPTION**                                    |
+| -------- | ---------------------- | -------------------------------------------------- |
+| POST     | /api-v1/users/register | Adds a new user to database                        |
+| POST     | /api-v1/users/login    | Logs in the user, sends back a token               |
+| GET      | /api-v1/users          | Reads all user documents with picture subdocs      |
+| GET      | /api-v1/users/:id      | Reading user document corresponding to ID          |
+| POST     | /api-v1/pictures       | Creates picture subdoc in current user document    |
+| GET      | /api-v1/pictures/:id   | Read picture document corresponding to ID          |
+| PUT      | /api-v1/pictures/:id   | Updates picture caption corresponding to ID        |
+| DELETE   | /api-v1/pictures/:id   | Delete individul picture post corresponding to ID  |
+| POST     | /api-v1/comments       | Add comments to an individual picture              |
+| PUT      | /api-v1/comments/:id   | Updates comment corresponding to ID                |
+| DELETE   | /api-v1/comments/:id   | Deletes comment corresponding to ID                |
 
 # Restful Routing Chart - front-end
 
-| **CRUD** | **URL**                | **DESCRIPTION**                         |
-| -------- | ---------------------- | --------------------------------------- |
-| GET     | /        |  Renders a landing page                               |
-| GET     | /login   | Renders a login form                                  |
-| GET      | /register     | Renders a register form                       |
-| GET      | /about         | Renders an About page with bio components     |
-| GET     | /feed     | Renders all users with slideshow component            |
-| GET      | /profiles/:id  | Renders specific user with all photo component |
-| GET      | /pictures/:id   | Renders photo detail page with comments component|
-| GET      | /pictures/new   | Renders a photo upload form |
-| GET      | /pictures/:id/edit   | Renders a caption update form |
+| **CRUD** | **URL**             | **DESCRIPTION**                                    |
+| -------- | ------------------- | -------------------------------------------------- |
+| GET      | /                   |  Renders a landing page                            |
+| GET      | /login              | Renders a login form                               |
+| GET      | /register           | Renders a register form                            |
+| GET      | /about              | Renders an About page with bio components          |
+| GET      | /feed               | Renders all users with slideshow component         |
+| GET      | /profiles/:id       | Renders specific user with all photo component     |
+| GET      | /pictures/:id       | Renders photo detail page with comments component  |
+| GET      | /pictures/new       | Renders a photo upload form                        |
+| GET      | /pictures/:id/edit  | Renders a caption update form                      |
 
 
 
