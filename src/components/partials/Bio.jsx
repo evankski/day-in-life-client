@@ -1,4 +1,4 @@
-export default function Bio({ member, idx }) {
+export default function Bio({ member }) {
     return (
         <div>
             <img src={`${member.image_url}`} alt={`Picture of ${member.name}`} width={'20%'} style={{borderRadius: 400/ 2}}/>

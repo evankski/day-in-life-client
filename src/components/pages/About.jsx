@@ -5,7 +5,7 @@ export default function About() {
 
     const allMembers = members.map((member,idx) => {
         return (
-            <Bio key={`member-${idx}`} member={member} idx={idx} />
+            <Bio key={`member-${idx}`} member={member} />
         )
     })
 
