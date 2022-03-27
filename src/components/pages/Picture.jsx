@@ -10,7 +10,9 @@ export default function Picture({ setUsers }) {
     const { id } = useParams()
 
     // STATE
-    const [photo, setPhoto] = useState({})
+    const [photo, setPhoto] = useState({
+        comments: []
+    })
     const [form, setForm] = useState({
         name: '',
         content: '',
@@ -25,11 +27,11 @@ export default function Picture({ setUsers }) {
                 const token = localStorage.getItem('jwt')
                 const options = {
                     headers: {
-                        'authorization': token
+                        'Authorization': token
                     }
                 }
                 const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/pictures/${id}`, options)
-                // console.log(response.data)
+                console.log(response.data)
                 setPhoto(response.data)
             } catch (err) {
                 console.log(err)
@@ -48,18 +50,17 @@ export default function Picture({ setUsers }) {
     }
 
     // COMPONENTS
+    const commentsList = photo.comments.map((comment, idx) => {
+        return <Comment key={`comment-${idx}`} comment={comment} /> 
+    })
     
-
     return (
         <>
             <h1>Picture Detail Page with associated comments</h1>
-            <h3>Big Picture Here</h3>
-
-            {/* <Comment />
-            <Comment />
-            <Comment />
-            <Comment />
-            <Comment /> */}
+            {photo ? <img src={`https://res.cloudinary.com/dhs1wrqhp/image/upload/${photo.public_id}`} alt="user photo" /> : null }
+            <div>
+                {commentsList}
+            </div>
         </>
         
     )

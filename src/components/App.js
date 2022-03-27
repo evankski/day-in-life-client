@@ -34,13 +34,13 @@ function App() {
         setCurrentUser(null)
       }
 
-      // setting state with all users from db
-      axios.get(process.env.REACT_APP_SERVER_URL+'/api-v1/users')
-        .then(res => {
-          // console.log(res.data)
-          setUsers(res.data)
-        })
-        .catch(console.log)
+      // // setting state with all users from db
+      // axios.get(process.env.REACT_APP_SERVER_URL+'/api-v1/users')
+      //   .then(res => {
+      //     // console.log(res.data)
+      //     setUsers(res.data)
+      //   })
+      //   .catch(console.log)
     }, [])
     // logout handler function that deletes a token from localstorage
     const handleLogout = () => {
