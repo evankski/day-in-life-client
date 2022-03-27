@@ -1,5 +1,9 @@
-export default function Photo() {
+// import { Link } from
+
+export default function Photo({ photo }) {
     return (
-        <h4>Photo Component</h4>
+        <>
+            <img src={`https://res.cloudinary.com/dhs1wrqhp/image/upload/${photo.public_id}`} alt="user photo" /> 
+        </>
     )
 }
