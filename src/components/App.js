@@ -12,10 +12,18 @@ import About from './pages/About';
 import Feed from './pages/Feed';
 import Profile from './pages/Profile';
 import Picture from './pages/Picture';
+import axios from 'axios';
 
 function App() {
+
+  // STATE
     // state with the user data when the user is logged in
     const [currentUser, setCurrentUser] = useState(null)
+
+    // state with all users
+    const [users, setUsers] = useState([])
+
+  // USE
     // useEffect that handles localstorage if the user navigates away from the page/refreshes
     useEffect(() => {
       const token = localStorage.getItem('jwt')
@@ -25,6 +33,14 @@ function App() {
       } else {
         setCurrentUser(null)
       }
+
+      // setting state with all users from db
+      axios.get(process.env.REACT_APP_SERVER_URL+'/api-v1/users')
+        .then(res => {
+          // console.log(res.data)
+          setUsers(res.data)
+        })
+        .catch(console.log)
     }, [])
     // logout handler function that deletes a token from localstorage
     const handleLogout = () => {
@@ -53,7 +69,7 @@ function App() {
 
                     <Route path='/profiles/:id' element={<Profile />} />
 
-                    <Route path='/pictures/:id' element={<Picture />} />
+                    <Route path='/pictures/:id' element={<Picture users={users} setUsers={setUsers} />} />
 
                 </Routes>
           </Layout>

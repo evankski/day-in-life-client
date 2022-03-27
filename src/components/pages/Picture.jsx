@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 
 import Comment from '../partials/Comment'
 
-export default function Picture() {
+export default function Picture({ users, setUsers }) {
 
     const { id } = useParams()
 
