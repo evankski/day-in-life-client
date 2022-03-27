@@ -1,13 +1,16 @@
 import axios from 'axios'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import Comment from '../partials/Comment'
 
-export default function Picture({ users, setUsers }) {
+export default function Picture({ setUsers }) {
 
+    // PARAMS
     const { id } = useParams()
 
+    // STATE
+    const [photo, setPhoto] = useState({})
     const [form, setForm] = useState({
         name: '',
         content: '',
@@ -15,6 +18,26 @@ export default function Picture({ users, setUsers }) {
         photoId: ''
     })
 
+    // USE-EFFECT
+    useEffect(() => {
+        (async () => {
+            try {
+                const token = localStorage.getItem('jwt')
+                const options = {
+                    headers: {
+                        'authorization': token
+                    }
+                }
+                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/pictures/${id}`, options)
+                // console.log(response.data)
+                setPhoto(response.data)
+            } catch (err) {
+                console.log(err)
+            }
+        })()
+    },[])
+
+    // FUNCTIONS
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
@@ -24,15 +47,19 @@ export default function Picture({ users, setUsers }) {
         }
     }
 
+    // COMPONENTS
+    
+
     return (
         <>
             <h1>Picture Detail Page with associated comments</h1>
             <h3>Big Picture Here</h3>
+
+            {/* <Comment />
             <Comment />
             <Comment />
             <Comment />
-            <Comment />
-            <Comment />
+            <Comment /> */}
         </>
         
     )

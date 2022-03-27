@@ -69,7 +69,7 @@ function App() {
 
                     <Route path='/profiles/:id' element={<Profile />} />
 
-                    <Route path='/pictures/:id' element={<Picture users={users} setUsers={setUsers} />} />
+                    <Route path='/pictures/:id' element={<Picture setUsers={setUsers} />} />
 
                 </Routes>
           </Layout>
