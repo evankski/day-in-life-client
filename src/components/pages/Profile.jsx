@@ -1,51 +1,48 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-
-import Photo from '../partials/Photo'
+import Photo from "../partials/Photo";
+import { Link, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function Profile() {
+  const { id } = useParams();
+  const [photos, setPhotos] = useState([]);
+  useEffect(() => {
+    (async () => {
+      try {
+        const token = localStorage.getItem("jwt");
+        // console.log(token);
+        const options = {
+          headers: {
+            Authorization: token,
+          },
+        };
+        const response = await axios.get(
+          `${process.env.REACT_APP_SERVER_URL}/api-v1/users/${id}`,
+          options
+        );
+        console.log(response.data);
+        setPhotos(response.data.photos);
+      } catch (err) {
+        console.log(err);
+      }
+    })();
+  }, []);
 
-    // PARAMS
-    const { id } = useParams()
+  const userPhotos = photos.map((photo, idx) => {
+    const cloudImage = `https://res.cloudinary.com/dhs1wrqhp/image/upload/v1593119998/${photo.public_id}.png`;
 
-    // STATE
-    const [user, setUser] = useState({
-        photos: []
-    })
-
-    // USE-EFFECT
-    useEffect(() => {
-        (async () => {
-            try {
-                const token = localStorage.getItem('jwt')
-                const options = {
-                    headers: {
-                        'Authorization': token
-                    }
-                }
-                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/${id}`, options)
-                console.log(response.data)
-                setUser(response.data)
-            } catch (err) {
-                console.log(err)
-            }
-        })()
-    },[])
-
-    // FUNCTIONS
-    
-    // COMPONENTS
-    const photosList = user.photos.map((photo, idx) => {
-        return <Photo key={`photo-${idx}`} photo={photo} />
-    })
-    
     return (
-        <>
-            <h1>Profile Page with :id user's photos</h1>
-            <div>
-                {photosList}
-            </div>
-        </>
-    )
+      <div key={photo.public_id}>
+        <Link to={`pictures/${photo.public_id}`}>
+          <img src={cloudImage} key={photo.public_id} />;
+        </Link>
+      </div>
+    );
+  });
+  return (
+    <div>
+      <h1>Testing</h1>
+      {userPhotos}
+    </div>
+  );
 }
