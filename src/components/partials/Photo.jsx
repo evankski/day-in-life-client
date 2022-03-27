@@ -1,5 +1,11 @@
-export default function Photo() {
+import { Link } from 'react-router-dom'
+
+export default function Photo({ photo }) {
     return (
-        <h4>Photo Component</h4>
+        <>
+            <Link to={`/pictures/${photo._id}`}>
+                <img src={`https://res.cloudinary.com/dhs1wrqhp/image/upload/${photo.public_id}`} alt="user photo" /> 
+            </Link>
+        </>
     )
 }
