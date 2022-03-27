@@ -65,7 +65,8 @@ function App() {
 
                     <Route path='/about' element={<About />} />
 
-                    <Route path='/feed' element={currentUser ? <Feed currentUser={currentUser} /> : <Navigate to='/login' />} />
+                    <Route path='/feed' element={<Feed />} />
+                    {/* <Route path='/feed' element={currentUser ? <Feed currentUser={currentUser} /> : <Navigate to='/login' />} /> */}
 
                     <Route path='/profiles/:id' element={<Profile />} />
 
