@@ -57,7 +57,14 @@ export default function Picture({ setUsers }) {
     return (
         <>
             <h1>Picture Detail Page with associated comments</h1>
-            {photo ? <img src={`https://res.cloudinary.com/dhs1wrqhp/image/upload/${photo.public_id}`} alt="user photo" /> : null }
+            {photo ? 
+                (
+                    <>
+                        <img src={`https://res.cloudinary.com/dhs1wrqhp/image/upload/${photo.public_id}`} alt="user photo" /> 
+                        <p>{photo.caption}</p>
+                    </>
+                ) : 
+                null }
             <div>
                 {commentsList}
             </div>
