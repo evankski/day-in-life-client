@@ -94,7 +94,7 @@ function App() {
 
             <Route
               path="/pictures/:id"
-              element={<Picture setUsers={setUsers} />}
+              element={<Picture setUsers={setUsers} currentUser={currentUser} />}
             />
           </Routes>
         </Layout>

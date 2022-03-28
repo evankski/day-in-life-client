@@ -3,8 +3,10 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import Comment from '../partials/Comment'
+import EditCaptionForm from '../partials/EditCaptionForm'
+import CommentForm from '../partials/CommentForm'
 
-export default function Picture({ setUsers }) {
+export default function Picture({ setUsers, currentUser }) {
 
     // PARAMS
     const { id } = useParams()
@@ -13,17 +15,23 @@ export default function Picture({ setUsers }) {
     const [photo, setPhoto] = useState({
         comments: []
     })
-    const [form, setForm] = useState({
-        name: '',
-        content: '',
-        user_id: '',
-        photoId: ''
-    })
+    const [ownerId, setOwnerId] = useState('')
+    const [editCaption, setEditCaption] = useState(false)
+    const [captionForm, setCaptionForm] = useState('')
+    const [newComment, setNewComment] = useState('')
+    const [actions, setActions] = useState(0)
+    // const [form, setForm] = useState({
+    //     name: '',
+    //     content: '',
+    //     user_id: '',
+    //     photoId: ''
+    // })
 
     // USE-EFFECT
     useEffect(() => {
         (async () => {
             try {
+                console.log('useEffect')
                 const token = localStorage.getItem('jwt')
                 const options = {
                     headers: {
@@ -31,19 +39,46 @@ export default function Picture({ setUsers }) {
                     }
                 }
                 const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/pictures/${id}`, options)
-                console.log(response.data)
-                setPhoto(response.data)
+                // console.log(response.data)
+                setPhoto(response.data.foundPhoto)
+                setOwnerId(response.data.ownerId)
             } catch (err) {
                 console.log(err)
             }
         })()
-    },[])
+    },[editCaption, actions])
 
     // FUNCTIONS
-    const handleSubmit = async (e) => {
+    const putCaption = async (e) => {
         e.preventDefault()
         try {
-            const response = await axios.post(process.env.REACT_APP_SERVER_URL + '/api-v1/comments', form)
+            const token = localStorage.getItem('jwt')
+            const options = {
+                headers: {
+                    'Authorization': token
+                }
+            }
+            const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/api-v1/pictures/${id}`, {caption: captionForm}, options)
+            // console.log(response.data)
+            setEditCaption(false)
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    const postComment = async (e) => {
+        e.preventDefault()
+        try {
+            const token = localStorage.getItem('jwt')
+            const options = {
+                headers: {
+                    'Authorization': token
+                }
+            }
+            const response = await axios.post(process.env.REACT_APP_SERVER_URL + '/api-v1/comments', { name: currentUser.name, content: newComment, photoId: id}, options)
+            console.log(response.data)
+            setNewComment('')
+            setActions(actions+1)
         } catch (err) {
             console.log(err)
         }
@@ -61,13 +96,15 @@ export default function Picture({ setUsers }) {
                 (
                     <>
                         <img src={`https://res.cloudinary.com/dhs1wrqhp/image/upload/${photo.public_id}`} alt="user photo" /> 
-                        <p>{photo.caption}</p>
+                        {editCaption ? <EditCaptionForm putCaption={putCaption} captionForm={captionForm} setCaptionForm={setCaptionForm}/> : <p>{photo.caption}</p>}
+                        {currentUser ? (ownerId === currentUser.id ? <button onClick={() => setEditCaption(!editCaption)}>{editCaption ? 'Back' : 'Edit'}</button> : null) : null}
                     </>
                 ) : 
                 null }
             <div>
                 {commentsList}
             </div>
+            <CommentForm handleSubmit={postComment} commentForm={newComment} setCommentForm={setNewComment} />
         </>
         
     )
