@@ -30,20 +30,20 @@ export default function Profile() {
     })();
   }, []);
 
-  const userPhotos = photos.map((photo, idx) => {
+  const userPhotos = photos.map((photo) => {
     const cloudImage = `https://res.cloudinary.com/dhs1wrqhp/image/upload/v1593119998/${photo.public_id}.png`;
 
     return (
       <div key={photo.public_id}>
-        <Link to={`pictures/${photo.public_id}`}>
-          <img src={cloudImage} key={photo.public_id} />;
+        <Link to={`pictures/${photo._id}`}>
+          <img src={cloudImage} key={photo.public_id} />
         </Link>
       </div>
     );
   });
   return (
     <div>
-      <h1>T{userName}</h1>
+      <h1>{userName}</h1>
       {userPhotos}
     </div>
   );
