@@ -1,7 +1,10 @@
 import axios from "axios"
 import { useState } from "react"
+import { Navigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
-function UploadPicture() {
+function UploadPicture({currentUser}) {
+    let navigate = useNavigate()
     const [formImg, setFormImg] = useState('')
     const [caption, setCaption] = useState('')
     const [msg, setMsg] = useState('')
@@ -9,14 +12,20 @@ function UploadPicture() {
     const handleSubmit = async e => {
         e.preventDefault()
         try {
+          const token = localStorage.getItem('jwt')
+          const options = {
+                headers: {
+                    'Authorization': token
+                }
+          }
           // multipart form data object
           const fd  = new FormData()
           //   append the data
           fd.append('image', formImg)
           fd.append('caption', caption)
-          const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/pictures`, fd)
-          console.log(response.data)
-          setDisplayImg(response.data.cloudImage)
+          const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/pictures`, fd, options)
+          navigate(`/profiles/${currentUser.id}`)
+            //   <Navigate to={`/profiles/${currentUser.id}`} />
         } catch(err) {
             console.log(err)
             setMsg('Go check the server console, there was an error')

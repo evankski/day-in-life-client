@@ -97,7 +97,7 @@ function App() {
               path="/pictures/:id"
               element={<Picture setUsers={setUsers} currentUser={currentUser} />}
             />
-            <Route path="/new" element={<UploadPicture />}/>
+            <Route path="/new" element={<UploadPicture currentUser={currentUser}/>}/>
           </Routes>
         </Layout>
       </Router>
