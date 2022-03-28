@@ -19,18 +19,19 @@ export default function Picture({ setUsers, currentUser }) {
     const [editCaption, setEditCaption] = useState(false)
     const [captionForm, setCaptionForm] = useState('')
     const [newComment, setNewComment] = useState('')
-    const [form, setForm] = useState({
-        name: '',
-        content: '',
-        user_id: '',
-        photoId: ''
-    })
+    const [actions, setActions] = useState(0)
+    // const [form, setForm] = useState({
+    //     name: '',
+    //     content: '',
+    //     user_id: '',
+    //     photoId: ''
+    // })
 
     // USE-EFFECT
     useEffect(() => {
         (async () => {
             try {
-                // console.log('useEffect')
+                console.log('useEffect')
                 const token = localStorage.getItem('jwt')
                 const options = {
                     headers: {
@@ -45,7 +46,7 @@ export default function Picture({ setUsers, currentUser }) {
                 console.log(err)
             }
         })()
-    },[editCaption])
+    },[editCaption, actions])
 
     // FUNCTIONS
     const putCaption = async (e) => {
@@ -68,7 +69,16 @@ export default function Picture({ setUsers, currentUser }) {
     const postComment = async (e) => {
         e.preventDefault()
         try {
-            const response = await axios.post(process.env.REACT_APP_SERVER_URL + '/api-v1/comments', form)
+            const token = localStorage.getItem('jwt')
+            const options = {
+                headers: {
+                    'Authorization': token
+                }
+            }
+            const response = await axios.post(process.env.REACT_APP_SERVER_URL + '/api-v1/comments', { name: currentUser.name, content: newComment, photoId: id}, options)
+            console.log(response.data)
+            setNewComment('')
+            setActions(actions+1)
         } catch (err) {
             console.log(err)
         }
