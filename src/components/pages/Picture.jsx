@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 
 import Comment from '../partials/Comment'
 import EditCaptionForm from '../partials/EditCaptionForm'
-import NewCommentForm from '../partials/NewCommentForm'
+import CommentForm from '../partials/CommentForm'
 
 export default function Picture({ setUsers, currentUser }) {
 
@@ -94,7 +94,7 @@ export default function Picture({ setUsers, currentUser }) {
             <div>
                 {commentsList}
             </div>
-            <NewCommentForm handleSubmit={postComment} commentForm={newComment} setCommentForm={setNewComment} />
+            <CommentForm handleSubmit={postComment} commentForm={newComment} setCommentForm={setNewComment} />
         </>
         
     )
