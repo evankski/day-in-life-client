@@ -6,6 +6,7 @@ import axios from "axios";
 export default function Profile() {
   const { id } = useParams();
   const [photos, setPhotos] = useState([]);
+  const [userName, setUserName] = useState("");
   useEffect(() => {
     (async () => {
       try {
@@ -22,6 +23,7 @@ export default function Profile() {
         );
         console.log(response.data);
         setPhotos(response.data.photos);
+        setUserName(response.data.name);
       } catch (err) {
         console.log(err);
       }
@@ -41,7 +43,7 @@ export default function Profile() {
   });
   return (
     <div>
-      <h1>Testing</h1>
+      <h1>T{userName}</h1>
       {userPhotos}
     </div>
   );
