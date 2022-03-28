@@ -13,12 +13,12 @@ export default function Picture({ setUsers, currentUser }) {
 
     // STATE
     const [photo, setPhoto] = useState({
-        comments: []
+        comments: [{}]
     })
-    const [ownerId, setOwnerId] = useState('')
+    const [ownerId, setOwnerId] = useState('a')
     const [editCaption, setEditCaption] = useState(false)
-    const [captionForm, setCaptionForm] = useState('')
-    const [newComment, setNewComment] = useState('')
+    const [captionForm, setCaptionForm] = useState('b')
+    const [newComment, setNewComment] = useState('c')
     const [actions, setActions] = useState(0)
     // const [form, setForm] = useState({
     //     name: '',
@@ -85,9 +85,9 @@ export default function Picture({ setUsers, currentUser }) {
     }
 
     // COMPONENTS
-    const commentsList = photo.comments.map((comment, idx) => {
-        return <Comment key={`comment-${idx}`} comment={comment} /> 
-    })
+    // const commentsList = photo.comments.map((comment, idx) => {
+    //     return <Comment key={`comment-${idx}`} comment={comment} /> 
+    // })
     
     return (
         <>
@@ -102,7 +102,7 @@ export default function Picture({ setUsers, currentUser }) {
                 ) : 
                 null }
             <div>
-                {commentsList}
+                {/* {commentsList} */}
             </div>
             <CommentForm handleSubmit={postComment} commentForm={newComment} setCommentForm={setNewComment} />
         </>
