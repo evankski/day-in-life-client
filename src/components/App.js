@@ -18,6 +18,7 @@ import Feed from "./pages/Feed";
 import Profile from "./pages/Profile";
 import Picture from "./pages/Picture";
 import axios from "axios";
+import UploadPicture from "./pages/UploadPicture";
 
 function App() {
   // STATE
@@ -96,6 +97,7 @@ function App() {
               path="/pictures/:id"
               element={<Picture setUsers={setUsers} currentUser={currentUser} />}
             />
+            <Route path="/new" element={<UploadPicture />}/>
           </Routes>
         </Layout>
       </Router>
