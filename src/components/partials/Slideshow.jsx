@@ -16,13 +16,16 @@ export default function Slideshow({ user }) {
     <>
       <Link to={`/profiles/${user._id}`}>
         <h3>{user.name}</h3>
-        <h4>{user.photos.length}</h4>
           {/* <img
             src={`https://res.cloudinary.com/dhs1wrqhp/image/upload/${user.photos[Math.floor(Math.random()*user.photos.length)].public_id}`}
             alt="user photo"
           /> */}
           <img
-            src={`https://res.cloudinary.com/dhs1wrqhp/image/upload/${user.photos[imageIndex].public_id}`}
+            src={!user.photos[0] ?
+                `https://cdn-icons-png.flaticon.com/512/202/202770.png`
+                :
+                `https://res.cloudinary.com/dhs1wrqhp/image/upload/${user.photos[imageIndex].public_id}`  
+            }
             alt="user photo"
             width={'20%'}
             id="userImg"
