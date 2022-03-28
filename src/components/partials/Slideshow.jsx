@@ -22,7 +22,7 @@ export default function Slideshow({ user }) {
           /> */}
           <img
             src={!user.photos[0] ?
-                `https://cdn-icons-png.flaticon.com/512/202/202770.png`
+                `https://upload.wikimedia.org/wikipedia/commons/8/89/HD_transparent_picture.png`
                 :
                 `https://res.cloudinary.com/dhs1wrqhp/image/upload/${user.photos[imageIndex].public_id}`  
             }
