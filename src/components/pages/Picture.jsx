@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 
 import Comment from '../partials/Comment'
 import EditCaptionForm from '../partials/EditCaptionForm'
+import NewCommentForm from '../partials/NewCommentForm'
 
 export default function Picture({ setUsers, currentUser }) {
 
@@ -17,6 +18,7 @@ export default function Picture({ setUsers, currentUser }) {
     const [ownerId, setOwnerId] = useState('')
     const [editCaption, setEditCaption] = useState(false)
     const [captionForm, setCaptionForm] = useState('')
+    const [newComment, setNewComment] = useState('')
     const [form, setForm] = useState({
         name: '',
         content: '',
@@ -28,6 +30,7 @@ export default function Picture({ setUsers, currentUser }) {
     useEffect(() => {
         (async () => {
             try {
+                // console.log('useEffect')
                 const token = localStorage.getItem('jwt')
                 const options = {
                     headers: {
@@ -42,7 +45,7 @@ export default function Picture({ setUsers, currentUser }) {
                 console.log(err)
             }
         })()
-    },[])
+    },[editCaption])
 
     // FUNCTIONS
     const putCaption = async (e) => {
@@ -55,7 +58,8 @@ export default function Picture({ setUsers, currentUser }) {
                 }
             }
             const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/api-v1/pictures/${id}`, {caption: captionForm}, options)
-            console.log(response.data)
+            // console.log(response.data)
+            setEditCaption(false)
         } catch (err) {
             console.log(err)
         }
@@ -90,6 +94,7 @@ export default function Picture({ setUsers, currentUser }) {
             <div>
                 {commentsList}
             </div>
+            <NewCommentForm handleSubmit={postComment} commentForm={newComment} setCommentForm={setNewComment} />
         </>
         
     )
