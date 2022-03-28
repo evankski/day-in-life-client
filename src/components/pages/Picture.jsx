@@ -85,9 +85,9 @@ export default function Picture({ setUsers, currentUser }) {
     }
 
     // COMPONENTS
-    // const commentsList = photo.comments.map((comment, idx) => {
-    //     return <Comment key={`comment-${idx}`} comment={comment} /> 
-    // })
+    const commentsList = photo.comments.map((comment, idx) => {
+        return <Comment key={`comment-${idx}`} comment={comment} /> 
+    })
     
     return (
         <>
@@ -102,7 +102,7 @@ export default function Picture({ setUsers, currentUser }) {
                 ) : 
                 null }
             <div>
-                {/* {commentsList} */}
+                {commentsList}
             </div>
             <CommentForm handleSubmit={postComment} commentForm={newComment} setCommentForm={setNewComment} />
         </>
