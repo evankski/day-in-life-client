@@ -1,6 +1,9 @@
+import { Navigate } from "react-router-dom"
+
 import landing from "../../landing/landing"
 
-export default function Landing () {
+export default function Landing ({ currentUser }) {
+    if (currentUser) return <Navigate to='/feed' />
     return (
         <>
             <div className="app-explanation">

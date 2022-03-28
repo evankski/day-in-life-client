@@ -60,7 +60,7 @@ function App() {
       <Router>
         <Layout handleLogout={handleLogout} currentUser={currentUser}>
           <Routes>
-            <Route path="/" element={<Landing />} />
+            <Route path="/" element={<Landing currentUser={currentUser} />} />
 
             <Route
               path="/login"

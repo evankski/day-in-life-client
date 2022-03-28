@@ -5,10 +5,12 @@ export default function Navbar ({ handleLogout, currentUser }) {
     const loggedIn = (
         <>
             {/* if the user is logged in */}
-            <Link to='/feed' className='nav-link'>Feed</Link>
+            {currentUser ? <Link to={`/profiles/${currentUser.id}`} className='nav-link'>Profile</Link> : null}
+            <Link to='/new' className= 'nav-link'>New Post</Link>
             <Link to='/' className='nav-link'>
                 <span onClick={handleLogout}>Log Out</span>
             </Link>
+            
         </>
     )
     // if the user is logged out
@@ -22,16 +24,8 @@ export default function Navbar ({ handleLogout, currentUser }) {
 
     return (
         <nav>
-            <Link to='/' className='nav-link'>A Day in the Life</Link>
-            {/* for ease of ues navigating during development */}
-
+            <Link to='/' className='nav-link'>Home</Link>
             <Link to='/about' className='nav-link'>  About  </Link>
-            <Link to='/feed' className='nav-link'>  Feed  </Link>
-            <Link to='/profiles/:id' className='nav-link'>  Profile  </Link>
-            <Link to='/pictures/:id' className='nav-link'>  Picture  </Link>
-            
-            {/* for ease of ues navigating during development */}
-
             {currentUser ? loggedIn : loggedOut}
         </nav>
     )
