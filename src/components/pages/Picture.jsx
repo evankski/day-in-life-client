@@ -13,12 +13,12 @@ export default function Picture({ setUsers, currentUser }) {
 
     // STATE
     const [photo, setPhoto] = useState({
-        comments: [{}]
+        comments: []
     })
-    const [ownerId, setOwnerId] = useState('a')
+    const [ownerId, setOwnerId] = useState('')
     const [editCaption, setEditCaption] = useState(false)
-    const [captionForm, setCaptionForm] = useState('b')
-    const [newComment, setNewComment] = useState('c')
+    const [captionForm, setCaptionForm] = useState('')
+    const [newComment, setNewComment] = useState('')
     const [actions, setActions] = useState(0)
     // const [form, setForm] = useState({
     //     name: '',
