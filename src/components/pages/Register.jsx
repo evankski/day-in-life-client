@@ -37,7 +37,7 @@ export default function Register ({ currentUser, setCurrentUser }) {
 
     return (
         <div>
-            <h3>Sign Up:</h3>
+            <h3 className='sign-up'>Sign Up:</h3>
             <p>{msg ? `message from server: ${msg}` : ''}</p>
             <form onSubmit={handleFormSubmit}>
                 <label htmlFor="name">Name:</label>
