@@ -9,6 +9,27 @@ body {
   margin: 0px;
 }
 
+main {
+  margin: 7vh 15vw;
+}
+
+input {
+  text-align: center;
+  line-height: 2em;
+  width: 30vw;
+  margin: 1em auto;
+  border-radius: .25em;
+  border: none;
+}
+
+footer {
+  margin: 2vw 0;
+}
+
+footer a {
+  color: white;
+}
+
 .App {
   text-align: center;
   /* background-color: powderblue; */
@@ -82,8 +103,8 @@ nav {
 
 .random-class {
   margin: 7.9%;
-  width: 23vw;
-  height: 23vw;
+  width: 16.1vw;
+  height: 16.1vw;
   background-color: rgb(23, 11, 54);
   /* margin: 1rem; */
 }
@@ -93,9 +114,10 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 27vw;
-  height: 33vw;
+  width: 18.9vw;
+  height: 23.1vw;
   background-color: rgb(255, 254, 239);
+  border-radius: .25em;
 }
 
 /* the feed/profile page div */
@@ -105,8 +127,8 @@ nav {
 /* individual photo on feed/profile page */
 .polaroid-image {
   /* margin-top: 7.9%; */
-  width: 23vw;
-  height: 23vw;
+  width: 16.1vw;
+  height: 16.1vw;
   object-fit: contain;
 }
 
@@ -114,8 +136,9 @@ nav {
   border: none;
 }
 
+/* photo details page img */
 .individual {
-  width: 80vw;
+  width: 70vw;
   height: 40vh;
   object-fit: contain;
   margin: 5vh auto;
@@ -139,16 +162,51 @@ nav {
   background-size: cover;
 }
 
+/* class for title in feed */
 .dil {
   font-family: 'Special Elite', cursive;
-  color: rgb(250, 249, 239);
+  color: white;
 } 
 
 .owner-name {
   font-family: 'Special Elite', cursive;
-  color: rgb(250, 249, 227);
+  color: white;
 }
 
 .sign-up {
 
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-around;
+}
+
+.bg-light {
+  background-color:rgba(255, 255, 255, 0.1);
+  padding: 2em;
+  border-radius: .5em;
+}
+
+.margin-lr {
+  margin-left: 15vw;
+  margin-right: 15vw;
+}
+
+.btn {
+  margin: 1em auto 1.5em auto;
+  color: white;
+  background-color: rgba(49, 56, 64, 1);
+  width: 10em;
+  padding: 1em 3em;
+  border-radius: .75em;
+  border: none;
+  font-size: 1em;
+}
+
+.btn:hover {
+  background-color: white;
+  color: rgba(49, 56, 64, 1);
 }

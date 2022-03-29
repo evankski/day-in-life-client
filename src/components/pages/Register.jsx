@@ -36,23 +36,27 @@ export default function Register ({ currentUser, setCurrentUser }) {
     if (currentUser) return <Navigate to='/feed' />
 
     return (
-        <div>
-            <h3 className='sign-up'>Sign Up:</h3>
+        <div className='bg-light margin-lr'>
+            <h2 className='sign-up'>Sign Up</h2>
             <p>{msg ? `message from server: ${msg}` : ''}</p>
             <form onSubmit={handleFormSubmit}>
-                <label htmlFor="name">Name:</label>
-                <input id="name" type="text" placeholder='Enter name here...' onChange={e => setForm({...form, name: e.target.value})} value={form.name} required />
+                <div className='column'>
 
-                <label htmlFor="email">Email:</label>
-                <input id="email" type="email" placeholder='Enter email here...' onChange={e => setForm({...form, email: e.target.value})} value={form.email} required />
-                
-                <label htmlFor="password">Password:</label>
-                <input id="password" type="password" onChange={e => setForm({...form, password: e.target.value})} value={form.password} required />
+                    <label htmlFor="name">Name:</label>
+                    <input id="name" type="text" placeholder='Enter name here...' autoComplete="off" onChange={e => setForm({...form, name: e.target.value})} value={form.name} required />
 
-                <label htmlFor="passwordCheck">Confirm Password:</label>
-                <input id="passwordCheck" type="password" onChange={e => setForm({...form, passwordCheck: e.target.value})} value={form.passwordCheck} required />
+                    <label htmlFor="email">Email:</label>
+                    <input id="email" type="email" placeholder='Enter email here...' autoComplete="off" onChange={e => setForm({...form, email: e.target.value})} value={form.email} required />
+                    
+                    <label htmlFor="password">Password:</label>
+                    <input id="password" type="password" onChange={e => setForm({...form, password: e.target.value})} value={form.password} required />
 
-                <input type="submit" value="Submit" />
+                    <label htmlFor="passwordCheck">Confirm Password:</label>
+                    <input id="passwordCheck" type="password" onChange={e => setForm({...form, passwordCheck: e.target.value})} value={form.passwordCheck} required />
+
+                    <button className='btn' type="submit">Submit</button>
+
+                </div>
             </form>
         </div>
     )

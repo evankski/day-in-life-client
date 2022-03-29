@@ -19,7 +19,7 @@ export default function Feed ({ currentUser }) {
                     }
                 }
                 const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/users`, options)
-                console.log(response.data)
+                // console.log(response.data)
                 setUsers(response.data)
             } catch (err) {
                 console.log(err)
