@@ -52,6 +52,7 @@ export default function Profile({ currentUser, setCurrentUser }) {
         options
       );
       setShowEdit(false);
+      setShowEdit(true)
     } catch (err) {
       console.log(err);
     }
