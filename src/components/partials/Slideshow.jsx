@@ -13,25 +13,24 @@ export default function Slideshow({ user }) {
 
 
   return (
-    <>
-      <Link to={`/profiles/${user._id}`}>
-        <h3>{user.name}</h3>
-          {/* <img
-            src={`https://res.cloudinary.com/dhs1wrqhp/image/upload/${user.photos[Math.floor(Math.random()*user.photos.length)].public_id}`}
-            alt="user photo"
-          /> */}
-          <img
-            src={!user.photos[0] ?
+   
+      <Link to={`/profiles/${user._id}`} className="feed-link">
+        <div className="polaroid">
+          <div className="random-class">
+              
+            <img
+                src={!user.photos[0] ?
                 `https://upload.wikimedia.org/wikipedia/commons/8/89/HD_transparent_picture.png`
                 :
                 `https://res.cloudinary.com/dhs1wrqhp/image/upload/${user.photos[imageIndex].public_id}`  
-            }
-            alt="user photo"
-            width={'20%'}
-            id="userImg"
-            // className="animate__animated animate__fadeIn animate__infinite animate__slower"
-          />
+                }
+                alt="user photo"
+                id="userImg"
+             className="polaroid-image"
+             />
+        </div>  
+          <h3 className="marker">{user.name}</h3>
+        </div>
       </Link>
-    </>
   );
 }
