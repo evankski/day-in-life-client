@@ -1,3 +1,12 @@
+:root {
+  background-color: rgb(49, 56, 64);
+  color: white;
+}
+
+body {
+  margin: 0px;
+}
+
 .App {
   text-align: center;
   /* background-color: powderblue; */
@@ -6,7 +15,7 @@
 .nav-link {
   /* TRBL */
   padding: 0px 10px 0px 10px;
-  color: black;
+  color: whitesmoke;
 }
 
 a {
@@ -18,8 +27,10 @@ a:hover {
 }
 
 nav {
-  padding: 0px;
+  padding: 1rem;
   margin: 0px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .image0 {
@@ -46,3 +57,55 @@ nav {
   padding-left: 10em;
   padding-right: 10em;
 }
+
+.marker {
+  font-family: 'Permanent Marker', cursive;
+  margin-top: 0px;
+}
+
+.feed-link {
+  color:black;
+  letter-spacing: 0.1rem;
+}
+
+.polaroid-container { 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: flex-start;
+  gap: 2rem 2rem;
+  margin: 3rem 2rem;
+}
+
+.random-class {
+  margin: 7.9%;
+  width: 23vw;
+  height: 23vw;
+  background-color: rgb(15, 6, 37);
+  /* margin: 1rem; */
+}
+
+/* div class around each user on feed/profile page */
+.polaroid {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 27vw;
+  height: 33vw;
+  background-color: rgb(246, 246, 246);
+}
+
+/* the feed/profile page div */
+.feed-page {
+
+}
+
+
+/* individual photo on feed/profile page */
+.polaroid-image {
+  /* margin-top: 7.9%; */
+  width: 23vw;
+  height: 23vw;
+  object-fit: contain;
+}
+

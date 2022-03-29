@@ -67,16 +67,19 @@ export default function Feed ({ currentUser }) {
     })
 
     return (
-        <>
-            <h1>Public Feed Page where all user's slideshows would show up</h1>
-            <div>
-                {usersList}
+        <div className="feed-page">
+            <h1 className='dil'>A day in the life</h1>
+            <div className='polaroid-container'>
+                {usersList}    
             </div>
+        
+                
+
 
             {/* <h3>{currentUser.name}'s Feed</h3>
             <p>your email is {currentUser.email}</p>
             <h4>message from the auth-locked route:</h4>
             <h6>{msg}</h6> */}
-        </>
+        </div>
     )
 }
