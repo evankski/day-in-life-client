@@ -31,7 +31,7 @@ export default function Picture({ setUsers, currentUser }) {
     useEffect(() => {
         (async () => {
             try {
-                console.log('useEffect')
+                // console.log('useEffect')
                 const token = localStorage.getItem('jwt')
                 const options = {
                     headers: {
@@ -75,8 +75,8 @@ export default function Picture({ setUsers, currentUser }) {
                     'Authorization': token
                 }
             }
-            const response = await axios.post(process.env.REACT_APP_SERVER_URL + '/api-v1/comments', { name: currentUser.name, content: newComment, photoId: id}, options)
-            console.log(response.data)
+            const response = await axios.post(process.env.REACT_APP_SERVER_URL + '/api-v1/comments', { name: currentUser.name, content: newComment, photoId: id, user_id: currentUser.id}, options)
+            // console.log(response.data)
             setNewComment('')
             setActions(actions+1)
         } catch (err) {
@@ -86,7 +86,7 @@ export default function Picture({ setUsers, currentUser }) {
 
     // COMPONENTS
     const commentsList = photo.comments.map((comment, idx) => {
-        return <Comment key={`comment-${idx}`} comment={comment} /> 
+        return <Comment key={`comment-${idx}`} comment={comment} currentUser={currentUser} photoId={photo._id} actions={actions} setActions={setActions} /> 
     })
     
     return (
