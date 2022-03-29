@@ -19,12 +19,6 @@ export default function Picture({ setUsers, currentUser }) {
   const [captionForm, setCaptionForm] = useState("");
   const [newComment, setNewComment] = useState("");
   const [actions, setActions] = useState(0);
-  // const [form, setForm] = useState({
-  //     name: '',
-  //     content: '',
-  //     user_id: '',
-  //     photoId: ''
-  // })
 
   // USE-EFFECT
   useEffect(() => {
@@ -51,6 +45,7 @@ export default function Picture({ setUsers, currentUser }) {
   }, [editCaption, actions]);
 
   // FUNCTIONS
+  // Edits the caption of a picture corresponding to ID
   const putCaption = async (e) => {
     e.preventDefault();
     try {
@@ -72,6 +67,7 @@ export default function Picture({ setUsers, currentUser }) {
     }
   };
 
+  // Posts a comment to a individual picture -- requires token
   const postComment = async (e) => {
     e.preventDefault();
     try {
@@ -100,6 +96,7 @@ export default function Picture({ setUsers, currentUser }) {
   };
 
   // COMPONENTS
+  // Lists all comments of a indivdual picture post
   const commentsList = photo.comments.map((comment, idx) => {
     return (
       <Comment
@@ -118,7 +115,7 @@ export default function Picture({ setUsers, currentUser }) {
       {photo ? (
         <div>
           <img
-            src={`https://res.cloudinary.com/dhs1wrqhp/image/upload/${photo.public_id}`}
+            src={`https://res.cloudinary.com/dhs1wrqhp/image/upload/f_auto/${photo.public_id}`}
             alt="user photo"
             className="individual"
           />

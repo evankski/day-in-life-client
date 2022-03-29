@@ -22,11 +22,11 @@ export default function Slideshow({ user }) {
                 src={!user.photos[0] ?
                 `https://upload.wikimedia.org/wikipedia/commons/8/89/HD_transparent_picture.png`
                 :
-                `https://res.cloudinary.com/dhs1wrqhp/image/upload/${user.photos[imageIndex].public_id}`  
+                `https://res.cloudinary.com/dhs1wrqhp/image/upload/f_auto/${user.photos[imageIndex].public_id}`  
                 }
                 alt="user photo"
                 id="userImg"
-             className="polaroid-image"
+                className="polaroid-image"
              />
         </div>  
           <h3 className="marker">{user.name}</h3>

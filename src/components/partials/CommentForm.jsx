@@ -1,4 +1,5 @@
 export default function CaptionForm({ handleSubmit, commentForm, setCommentForm }) {
+    // Reused for edit and post of comment
     return (
         <>
             <form onSubmit={handleSubmit}>

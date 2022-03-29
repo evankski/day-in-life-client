@@ -14,6 +14,7 @@ export default function Comment({ comment, currentUser, photoId, actions, setAct
     const [commentForm, setCommentForm] = useState('')
 
     // FUNCTIONS
+    // Edits a comment corresponding to comment ID
     const putComment = async (e) => {
         e.preventDefault()
         try {
@@ -33,6 +34,7 @@ export default function Comment({ comment, currentUser, photoId, actions, setAct
         }
     }
 
+    // Deletes a comment corresponding to comment ID
     const handleDelete = async () => {
         try {
             const token = localStorage.getItem('jwt')

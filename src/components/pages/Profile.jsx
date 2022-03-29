@@ -4,12 +4,16 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function Profile({ currentUser, setCurrentUser }) {
+  // PARAMS
   const { id } = useParams();
+
+  // STATE
   const [photos, setPhotos] = useState([]);
   const [ownerName, setOwnerName] = useState("");
   const [showEdit, setShowEdit] = useState(false);
   const [ownerId, setOwnerId] = useState("");
 
+  // USE-EFFECT
   useEffect(() => {
     (async () => {
       try {
@@ -35,10 +39,13 @@ export default function Profile({ currentUser, setCurrentUser }) {
     })();
   }, [showEdit]);
 
+  // FUNCTION
+  // Toggles delete buttons
   const onButtonClick = () => {
     setShowEdit(!showEdit);
   };
 
+  // Deletes pictures corresponding to ID
   const handleDelete = async (photoId) => {
     try {
       const token = localStorage.getItem("jwt");
@@ -58,6 +65,8 @@ export default function Profile({ currentUser, setCurrentUser }) {
     }
   };
 
+  // COMPONENTS
+  // Lists all photos of a individual user
   const userPhotos = photos.map((photo, idx) => {
     const cloudImage = `https://res.cloudinary.com/dhs1wrqhp/image/upload/f_auto/${photo.public_id}.png`;
 
@@ -85,7 +94,7 @@ export default function Profile({ currentUser, setCurrentUser }) {
   });
   return (
     <div>
-      <h1>{ownerName}</h1>
+      <h1 className="owner-name">{ownerName}</h1>
       {currentUser ? (
         ownerId === currentUser.id ? (
           <button onClick={() => onButtonClick()}>
