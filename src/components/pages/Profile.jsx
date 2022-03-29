@@ -13,7 +13,7 @@ export default function Profile({ currentUser, setCurrentUser }) {
   useEffect(() => {
     (async () => {
       try {
-        console.log("hello");
+        // console.log("hello");
         const token = localStorage.getItem("jwt");
         // console.log(token);
         const options = {
@@ -25,7 +25,7 @@ export default function Profile({ currentUser, setCurrentUser }) {
           `${process.env.REACT_APP_SERVER_URL}/api-v1/users/${id}`,
           options
         );
-        console.log(response.data);
+        // console.log(response.data);
         setPhotos(response.data.photos);
         setOwnerName(response.data.name);
         setOwnerId(response.data._id);
@@ -52,22 +52,33 @@ export default function Profile({ currentUser, setCurrentUser }) {
         options
       );
       setShowEdit(false);
-      setShowEdit(true)
+      setShowEdit(true);
     } catch (err) {
       console.log(err);
     }
   };
 
-  const userPhotos = photos.map((photo) => {
-    const cloudImage = `https://res.cloudinary.com/dhs1wrqhp/image/upload/v1593119998/${photo.public_id}.png`;
+  const userPhotos = photos.map((photo, idx) => {
+    const cloudImage = `https://res.cloudinary.com/dhs1wrqhp/image/upload/f_auto/${photo.public_id}.png`;
 
     return (
-      <div key={photo.public_id}>
+      <div key={`photo-${idx}`} className="polaroid">
         <Link to={`/pictures/${photo._id}`}>
-          <img src={cloudImage} key={photo.public_id} />
+          <div className="random-class">
+            <img
+              src={cloudImage}
+              key={photo.public_id}
+              className="polaroid-image"
+            />
+          </div>
         </Link>
         {showEdit && (
-          <button onClick={() => handleDelete(photo._id)}>delete</button>
+          <button
+            onClick={() => handleDelete(photo._id)}
+            className="delete-button"
+          >
+            delete
+          </button>
         )}
       </div>
     );
@@ -82,8 +93,7 @@ export default function Profile({ currentUser, setCurrentUser }) {
           </button>
         ) : null
       ) : null}
-
-      {userPhotos}
+      <div className="polaroid-container">{userPhotos}</div>
     </div>
   );
 }
