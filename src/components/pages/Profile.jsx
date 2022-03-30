@@ -82,11 +82,11 @@ export default function Profile({ currentUser, setCurrentUser }) {
   });
   return (
     <div>
-      <h1 className="owner-name">{ownerName}</h1>
+      <h1 className="owner-name"><span className="indv-user">{ownerName}</span>'s Profile</h1>
       {currentUser ? (
         ownerId === currentUser.id ? (
           <button onClick={() => onButtonClick()}>
-            {showEdit ? "done editing" : "edit"}
+            {showEdit ? "done editing" : "edit"}  
           </button>
         ) : null
       ) : null}

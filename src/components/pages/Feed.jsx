@@ -36,7 +36,7 @@ export default function Feed ({ currentUser }) {
 
     return (
         <div className="feed-page">
-            <h1 className='dil'>A day in the life</h1>
+            <h1 className='dil'>A day in the <span className='indv-user'>life</span></h1>
             <div className='polaroid-container'>
                 {usersList}    
             </div>

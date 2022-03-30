@@ -197,8 +197,8 @@ nav {
 }
 
 .btn:hover, .image-upload:hover {
-  background-color: white;
-  color: rgba(49, 56, 64, 1);
+  background-color: rgb(86, 88, 255);
+  color:white;
   cursor: pointer;
 }
 
@@ -263,4 +263,8 @@ nav {
 .imgur {
   margin: 0 auto;
   width: 40rem;
+}
+
+.indv-user {
+  color: rgb(86, 88, 255);
 }
