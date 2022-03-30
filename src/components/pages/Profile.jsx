@@ -71,25 +71,13 @@ export default function Profile({ currentUser, setCurrentUser }) {
     const cloudImage = `https://res.cloudinary.com/dhs1wrqhp/image/upload/w_700,h_700,c_fill/f_auto/${photo.public_id}.png`;
 
     return (
-      <div key={`photo-${idx}`} className="polaroid">
-        <Link to={`/pictures/${photo._id}`}>
-          <div className="random-class">
-            <img
-              src={cloudImage}
-              key={photo.public_id}
-              className="polaroid-image"
-            />
-          </div>
-        </Link>
-        {showEdit && (
-          <button
-            onClick={() => handleDelete(photo._id)}
-            className="delete-button"
-          >
-            delete
-          </button>
-        )}
-      </div>
+      <Photo
+        key={`photo-${idx}`}
+        photo={photo}
+        cloudImage={cloudImage}
+        handleDelete={handleDelete}
+        showEdit={showEdit}
+      />
     );
   });
   return (
