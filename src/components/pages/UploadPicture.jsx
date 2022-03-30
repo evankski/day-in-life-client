@@ -4,11 +4,17 @@ import { Navigate } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 
 function UploadPicture({currentUser}) {
+
     let navigate = useNavigate()
+    
+    // STATE
     const [formImg, setFormImg] = useState('')
     const [caption, setCaption] = useState('')
+    const [fileName, setFileName] = useState('')
     const [msg, setMsg] = useState('')
-    const [displayImg, setDisplayImg] = useState('')
+   
+
+    // FUNCTIONS
     const handleSubmit = async e => {
         e.preventDefault()
         try {
@@ -31,25 +37,37 @@ function UploadPicture({currentUser}) {
             setMsg('Go check the server console, there was an error')
         }
     }
+
+    const handleChange = (e) => {
+        setFormImg(e.target.files[0])
+        setFileName(e.target.files[0].name)
+    }
+
     return ( 
         <div className='bg-light margin-lr'>
             <h2>Upload an Image</h2>
+            <i className='fas fa-cloud-upload-alt'></i>
             <form 
               onSubmit={handleSubmit}
               encType='multipart/form'
             >
                 <div className="column">
-                    
-                    <label htmlFor="image"></label>    
+                    <label htmlFor="image" className='image-upload'>
+                        Choose File
+                    </label>    
                     <input 
                         // no value on this controlled form
                         type="file" 
                         id="image"
-                        onChange={e => setFormImg(e.target.files[0])}
+                        onChange={handleChange}
+                        style={{display: 'none'}}
                         />
+                    <lable id='file-name'>{fileName}</lable>
                     <input 
                         type="text" 
                         id="caption"
+                        autoComplete='off'
+                        placeholder='Enter caption here...'
                         onChange={e => setCaption(e.target.value)}
                         value={caption}
                         />

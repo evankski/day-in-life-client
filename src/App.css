@@ -218,7 +218,18 @@ nav {
   font-size: 1em;
 }
 
-.btn:hover {
+.btn:hover, .image-upload:hover {
   background-color: white;
   color: rgba(49, 56, 64, 1);
+  cursor: pointer;
+}
+
+.image-upload {
+  margin: 1em auto 1.5em auto;
+  color: white;
+  background-color: rgba(49, 56, 64, 1);
+  width: 6em;
+  padding: .5em 1.5em;
+  border-radius: .75em;
+  border: none;
 }
