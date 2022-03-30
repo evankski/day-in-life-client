@@ -55,7 +55,7 @@ export default function Login ({ currentUser, setCurrentUser }) {
                     <label htmlFor="password">Password:</label>
                     <input id="password" type="password" onChange={e => setForm({...form, password: e.target.value})} value={form.password} />
 
-                    <button className='btn' type="submit">Submit</button>
+                    <button className='btn' type="submit">Log In</button>
 
                 </div>
             </form>

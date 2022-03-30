@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Navigate } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 
@@ -11,7 +11,8 @@ function UploadPicture({currentUser}) {
     const [formImg, setFormImg] = useState('')
     const [caption, setCaption] = useState('')
     const [fileName, setFileName] = useState('')
-    const [msg, setMsg] = useState('')
+    const [displayImg, setDisplayImg] = useState('https://c.tenor.com/9Pz9iuGtD0QAAAAi/loading.gif')
+    // const [msg, setMsg] = useState('')
    
 
     // FUNCTIONS
@@ -34,18 +35,40 @@ function UploadPicture({currentUser}) {
             //   <Navigate to={`/profiles/${currentUser.id}`} />
         } catch(err) {
             console.log(err)
-            setMsg('Go check the server console, there was an error')
+            // setMsg('Go check the server console, there was an error')
         }
     }
 
-    const handleChange = (e) => {
-        setFormImg(e.target.files[0])
+    const handleChange = async (e) => {
         setFileName(e.target.files[0].name)
+        setFormImg(e.target.files[0])
     }
+
+    useEffect(() => {
+        (async () => {
+            if (formImg) {
+                try {
+                    const token = localStorage.getItem('jwt')
+                    const options = {
+                        headers: {
+                            'Authorization': token
+                        }
+                    }
+                    const fd = new FormData()
+                    fd.append('image', formImg)
+                    const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/pictures/preview`, fd, options)
+                    // console.log(response.data)
+                    setDisplayImg(response.data.cloudImage)
+                } catch (err) {
+                    console.log(err)
+                }
+            }
+        })()
+    },[formImg])
 
     return ( 
         <div className='bg-light margin-lr'>
-            <h2>Upload an Image</h2>
+            {/* <h2>Upload an Image</h2> */}
             <i className='fas fa-cloud-upload-alt'></i>
             <form 
               onSubmit={handleSubmit}
@@ -62,7 +85,8 @@ function UploadPicture({currentUser}) {
                         onChange={handleChange}
                         style={{display: 'none'}}
                         />
-                    <lable id='file-name'>{fileName}</lable>
+                    {formImg && <img src={displayImg} alt={fileName} />}
+                    <label id='file-name'>{fileName}</label>
                     <input 
                         type="text" 
                         id="caption"
@@ -71,7 +95,7 @@ function UploadPicture({currentUser}) {
                         onChange={e => setCaption(e.target.value)}
                         value={caption}
                         />
-                    <button className='btn' type="submit">Submit</button>
+                    <button className='btn' type="submit">Upload Picture</button>
 
                 </div>
             </form>
