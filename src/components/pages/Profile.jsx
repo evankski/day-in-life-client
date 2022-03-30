@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function Profile({ currentUser, setCurrentUser }) {
+export default function Profile({ currentUser }) {
   // PARAMS
   const { id } = useParams();
 
@@ -12,6 +12,7 @@ export default function Profile({ currentUser, setCurrentUser }) {
   const [ownerName, setOwnerName] = useState("");
   const [showEdit, setShowEdit] = useState(false);
   const [ownerId, setOwnerId] = useState("");
+  const [profilePic, setProfilePic] = useState("");
 
   // USE-EFFECT
   useEffect(() => {
@@ -33,6 +34,7 @@ export default function Profile({ currentUser, setCurrentUser }) {
         setPhotos(response.data.photos);
         setOwnerName(response.data.name);
         setOwnerId(response.data._id);
+        setProfilePic(response.data.profile_url);
       } catch (err) {
         console.log(err);
       }
@@ -65,10 +67,11 @@ export default function Profile({ currentUser, setCurrentUser }) {
     }
   };
 
+  const currentUserPic = `https://res.cloudinary.com/dhs1wrqhp/image/upload/w_700,h_700,c_fill/f_auto/${profilePic}.png`;
   // COMPONENTS
   // Lists all photos of a individual user
   const userPhotos = photos.map((photo, idx) => {
-    const cloudImage = `https://res.cloudinary.com/dhs1wrqhp/image/upload/w_700,h_700,c_fill/f_auto/${photo.public_id}.png`;
+    const cloudImage = `https://res.cloudinary.com/dhs1wrqhp/image/upload/w_200,h_200,c_fill/f_auto/${photo.public_id}.png`;
 
     return (
       <Photo
@@ -83,6 +86,7 @@ export default function Profile({ currentUser, setCurrentUser }) {
   return (
     <div>
       <h1 className="owner-name">{ownerName}</h1>
+      <img src={currentUserPic} className="profile-pic" />
       {currentUser ? (
         ownerId === currentUser.id ? (
           <button onClick={() => onButtonClick()}>
