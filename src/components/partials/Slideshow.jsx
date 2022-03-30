@@ -19,7 +19,7 @@ export default function Slideshow({ user }) {
             src={
               !user.photos[0]
                 ? `https://upload.wikimedia.org/wikipedia/commons/8/89/HD_transparent_picture.png`
-                : `https://res.cloudinary.com/dhs1wrqhp/image/upload/w_700,h_700,c_fill/${user.photos[imageIndex].public_id}`
+                : `https://res.cloudinary.com/dhs1wrqhp/image/upload/w_700,h_700,c_fill/f_auto/${user.photos[imageIndex].public_id}`
             }
             alt="user photo"
             id="userImg"
