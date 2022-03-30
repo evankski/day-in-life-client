@@ -54,7 +54,7 @@ export default function Register ({ currentUser, setCurrentUser }) {
                     <label htmlFor="passwordCheck">Confirm Password:</label>
                     <input id="passwordCheck" type="password" onChange={e => setForm({...form, passwordCheck: e.target.value})} value={form.passwordCheck} required />
 
-                    <button className='btn' type="submit">Submit</button>
+                    <button className='btn' type="submit">Create My Account</button>
 
                 </div>
             </form>
