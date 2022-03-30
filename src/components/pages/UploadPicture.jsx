@@ -11,7 +11,7 @@ function UploadPicture({currentUser}) {
     const [formImg, setFormImg] = useState('')
     const [caption, setCaption] = useState('')
     const [fileName, setFileName] = useState('')
-    const [displayImg, setDisplayImg] = useState('https://c.tenor.com/9Pz9iuGtD0QAAAAi/loading.gif')
+    const [displayImg, setDisplayImg] = useState('https://c.tenor.com/ga3h1_li7SUAAAAC/discord-loading.gif')
     // const [msg, setMsg] = useState('')
    
 
@@ -41,6 +41,7 @@ function UploadPicture({currentUser}) {
 
     const handleChange = async (e) => {
         setFileName(e.target.files[0].name)
+        setDisplayImg('https://c.tenor.com/ga3h1_li7SUAAAAC/discord-loading.gif')
         setFormImg(e.target.files[0])
     }
 
