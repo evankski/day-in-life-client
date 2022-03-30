@@ -34,6 +34,7 @@ footer a {
   text-align: center;
   /* background-color: powderblue; */
 }
+
 .nav-link {
   /* TRBL */
   padding: 0px 10px 0px 10px;
@@ -177,11 +178,22 @@ nav {
 
 }
 
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 2vw;
+}
+
 .column {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: space-around;
+}
+
+.center {
+  margin: 0 auto;
+  text-align: center;
 }
 
 .bg-light {
