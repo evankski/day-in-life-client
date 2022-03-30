@@ -28,7 +28,7 @@ function App() {
   // state with all users
   const [users, setUsers] = useState([]);
 
-  // USE
+  // USE-EFFECT
   // useEffect that handles localstorage if the user navigates away from the page/refreshes
   useEffect(() => {
     const token = localStorage.getItem("jwt");

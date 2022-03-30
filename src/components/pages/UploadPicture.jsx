@@ -32,24 +32,30 @@ function UploadPicture({currentUser}) {
         }
     }
     return ( 
-        <div>
+        <div className='bg-light margin-lr'>
+            <h2>Upload an Image</h2>
             <form 
               onSubmit={handleSubmit}
-              encType='multipart/form' >
-                <label htmlFor="image">Upload an image</label>    
-                <input 
-                    // no value on this controlled form
-                    type="file" 
-                    id="image"
-                    onChange={e => setFormImg(e.target.files[0])}
-                />
-                <input 
-                    type="text" 
-                    id="caption"
-                    onChange={e => setCaption(e.target.value)}
-                    value={caption}
-                />
-                <input type="submit"/>
+              encType='multipart/form'
+            >
+                <div className="column">
+                    
+                    <label htmlFor="image"></label>    
+                    <input 
+                        // no value on this controlled form
+                        type="file" 
+                        id="image"
+                        onChange={e => setFormImg(e.target.files[0])}
+                        />
+                    <input 
+                        type="text" 
+                        id="caption"
+                        onChange={e => setCaption(e.target.value)}
+                        value={caption}
+                        />
+                    <button className='btn' type="submit">Submit</button>
+
+                </div>
             </form>
         </div>
      );
