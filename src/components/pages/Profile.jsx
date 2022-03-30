@@ -68,7 +68,7 @@ export default function Profile({ currentUser, setCurrentUser }) {
   // COMPONENTS
   // Lists all photos of a individual user
   const userPhotos = photos.map((photo, idx) => {
-    const cloudImage = `https://res.cloudinary.com/dhs1wrqhp/image/upload/f_auto/${photo.public_id}.png`;
+    const cloudImage = `https://res.cloudinary.com/dhs1wrqhp/image/upload/w_700,h_700,c_fill/${photo.public_id}.png`;
 
     return (
       <div key={`photo-${idx}`} className="polaroid">
