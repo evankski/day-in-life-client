@@ -12,7 +12,7 @@ const landing = [
         image: 'https://cdn-icons-png.flaticon.com/512/1946/1946419.png',
     },
     {
-        content: 'this is showing that you can share comments with others Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        content: 'Want to try out A Day In The Life? Hit the link below to sign up for an account!',
         image:'https://www.nicepng.com/png/detail/207-2078186_comment-free-icon-comment-free-download.png'
     }
 ]

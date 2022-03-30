@@ -74,9 +74,6 @@ nav {
   padding-bottom: 100px;
 }
 
-.landing-text {
-  padding-top: 30px;
-}
 
 /* .app-explanation {
   padding-left: 10em;
@@ -144,11 +141,6 @@ nav {
   object-fit: contain;
   margin: 5vh auto;
 }
-
-.landing-text {
-  margin: 0;
-}
-
 
 /* class for title in feed */
 .dil {
@@ -259,6 +251,16 @@ nav {
 }
 
 .landing-text {
+  color: rgb(201, 201, 201);
+  width: 25vw;
+}
+
+.landing-text-bot {
   margin-bottom: 2rem;
   color: rgb(201, 201, 201);
+}
+
+.imgur {
+  margin: 0 auto;
+  width: 40rem;
 }

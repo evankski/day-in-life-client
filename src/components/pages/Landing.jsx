@@ -4,6 +4,7 @@ import landing from "../../landing/landing"
 
 import { Link } from "react-router-dom"
 
+
 export default function Landing ({ currentUser }) {
     if (currentUser) return <Navigate to='/feed' />
     return (
@@ -25,9 +26,12 @@ export default function Landing ({ currentUser }) {
             
                 <h4 className="landing-text">{landing[1].contentThree}</h4>
             </div>
-                <div className="app-explanation animate__animated animate__fadeIn">
+
+            <img src='https://i.imgur.com/2ROHQIx.png' alt="" className="imgur"/>
+
+            <div className="app-explanation animate__animated animate__fadeIn">
                 
-                <h3 className="landing-text">{landing[2].content}</h3>
+                <h3 className="landing-text-bot">{landing[2].content}</h3>
                 <Link to='/register' className='github-button'>Register Here</Link>
             </div>
         </div>
