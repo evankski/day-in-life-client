@@ -11,7 +11,7 @@ export default function About() {
 
     return (
         <>
-            <h1>About Page</h1>
+            <h1 className="about-h1 animate__animated animate__jello">About <span className="life">Page</span></h1>
             <div className="row">
                 {allMembers}
             </div>

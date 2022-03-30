@@ -1,6 +1,6 @@
 :root {
   /* background-color: rgb(49, 56, 64); */
-  background:rgba(49, 56, 64, 1);
+  background: rgba(49, 56, 64, 1);
   color: white;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -18,7 +18,7 @@ input {
   line-height: 2em;
   width: 30vw;
   margin: 1em auto;
-  border-radius: .25em;
+  border-radius: 0.25em;
   border: none;
 }
 
@@ -78,10 +78,10 @@ nav {
   padding-top: 30px;
 }
 
-.app-explanation {
+/* .app-explanation {
   padding-left: 10em;
   padding-right: 10em;
-}
+} */
 
 .marker {
   font-family: "Permanent Marker", cursive;
@@ -118,7 +118,7 @@ nav {
   width: 18.9vw;
   height: 23.1vw;
   background-color: rgb(255, 254, 239);
-  border-radius: .25em;
+  border-radius: 0.25em;
 }
 
 /* the feed/profile page div */
@@ -152,17 +152,16 @@ nav {
 
 /* class for title in feed */
 .dil {
-  font-family: 'Special Elite', cursive;
+  font-family: "Cutive Mono", cursive;
   color: white;
-} 
+}
 
 .owner-name {
-  font-family: 'Special Elite', cursive;
+  font-family: "Cutive Mono", cursive;
   color: white;
 }
 
 .sign-up {
-
 }
 
 .row {
@@ -184,9 +183,9 @@ nav {
 }
 
 .bg-light {
-  background-color:rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
   padding: 2em;
-  border-radius: .5em;
+  border-radius: 0.5em;
 }
 
 .margin-lr {
@@ -200,7 +199,7 @@ nav {
   background-color: rgba(49, 56, 64, 1);
   width: 10em;
   padding: 1em 3em;
-  border-radius: .75em;
+  border-radius: 0.75em;
   border: none;
   font-size: 1em;
 }
@@ -219,7 +218,8 @@ nav {
 
 .landing-text-one {
   font-size: 3.9rem;
-}
+
+} 
 
 .github-button:hover {
   background-color: rgb(86, 88, 255);
@@ -228,6 +228,7 @@ nav {
 .landing-p-one {
   margin-bottom: 2rem;
   font-size: 1em;
+  color: rgb(201, 201, 201);
 }
 
 .app-explanation-two {
@@ -235,4 +236,18 @@ nav {
   display: flex;
   flex-direction:row; 
   gap: 0rem 3rem;
+  color: rgb(201, 201, 201);
+}
+
+.life {
+  color: rgb(86, 88, 255);
+}
+
+.about-h1 {
+  font-size: 3rem;
+}
+
+.landing-text {
+  margin-bottom: 2rem;
+  color: rgb(201, 201, 201);
 }
