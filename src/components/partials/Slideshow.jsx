@@ -6,9 +6,10 @@ export default function Slideshow({ user }) {
 
   // Randomizes the index depending on the amount of photos uploaded by a user
   useEffect(() => {
-    setInterval(() => {
+    const picInt = setInterval(() => {
       setImageIndex(Math.floor(Math.random() * user.photos.length));
     }, 3000);
+    return () => clearInterval(picInt)
   }, []);
 
   return (
