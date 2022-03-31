@@ -13,6 +13,12 @@ main {
   margin: 7vh 15vw;
 }
 
+@media (max-width: 768px) {
+  main {
+    margin: 5vh 5vw;
+  }
+}
+
 input {
   text-align: center;
   line-height: 2em;
@@ -201,7 +207,7 @@ nav {
   margin: 1em auto 1.5em auto;
   color: white;
   background-color: rgba(49, 56, 64, 1);
-  width: 15em;
+  width: 20vw;
   padding: 1em 3em;
   border-radius: 0.75em;
   border: none;
@@ -283,6 +289,9 @@ nav {
 }
 
 @media (max-width: 768px) {
+  .btn {
+    padding: 1em 0;
+  }
   .picture .btn-edit {
     bottom: 0;
   }
@@ -318,6 +327,16 @@ nav {
   padding: 0.5em 1.5em;
   border-radius: 0.75em;
   border: none;
+}
+
+@media (max-width: 768px) {
+  .image-upload {
+    margin: 1em auto 1.5em auto;
+    color: white;
+    background-color: rgba(49, 56, 64, 1);
+    width: 20vw;
+    padding: .5em 0;
+  }
 }
 
 .github-button {
