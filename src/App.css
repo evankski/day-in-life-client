@@ -399,8 +399,9 @@ nav {
 
 .socials a{
   color: white;
+  font-size: 2rem;
 }
 
-.social-li {
-  width: 3rem;
+.bios {
+  width: 30rem;
 }
