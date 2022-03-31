@@ -14,8 +14,8 @@ export default function Slideshow({ user }) {
 
   return (
     <Link to={`/profiles/${user._id}`} className="feed-link">
-      <div className="polaroid">
-        <div className="random-class">
+      <div className="polaroid animate__animated animate__fadeIn">
+        <div className="polaroid-bg">
           <img
             src={
               !user.photos[0]

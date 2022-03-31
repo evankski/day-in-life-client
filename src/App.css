@@ -22,6 +22,19 @@ input {
   border: none;
 }
 
+hr {
+  opacity: 20%;
+  width: 40vw;
+}
+
+h5 {
+  margin: .4em 0;
+}
+
+h6 {
+  margin: 1em 0;
+}
+
 footer {
   margin: 2vw 0;
 }
@@ -53,9 +66,12 @@ nav {
   padding: 1rem;
   margin: 0px;
   border: none;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(34, 39, 45, .8);
   font-family: Arial, Helvetica, sans-serif;
   color: rgb(250, 249, 239);
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
 .image0 {
@@ -99,7 +115,7 @@ nav {
   margin: 3rem 2rem;
 }
 
-.random-class {
+.polaroid-bg {
   margin: 7.9%;
   width: 16.1vw;
   height: 16.1vw;
@@ -119,8 +135,8 @@ nav {
 }
 
 /* the feed/profile page div */
-.feed-page {
-}
+/* .feed-page {
+} */
 
 /* individual photo on feed/profile page */
 .polaroid-image {
@@ -128,10 +144,6 @@ nav {
   width: 16.1vw;
   height: 16.1vw;
   object-fit: contain;
-}
-
-.delete-button {
-  border: none;
 }
 
 /* photo details page img */
@@ -153,8 +165,8 @@ nav {
   color: white;
 }
 
-.sign-up {
-}
+/* .sign-up {
+} */
 
 .row {
   display: flex;
@@ -196,10 +208,103 @@ nav {
   font-size: 1em;
 }
 
-.btn:hover, .image-upload:hover {
+.btn-sm {
+  margin: 1em auto 1.5em auto;
+  color: white;
+  background-color: rgb(32, 38, 43);
+  /* width: 15em; */
+  margin: 1em;
+  padding: .75em 3em;
+  border-radius: 0.5em;
+  border: none;
+  font-size: .75em;
+  position: absolute;
+}
+
+.btn:hover, .btn-sm:hover, .btn-edit:hover, .image-upload:hover {
   background-color: rgb(86, 88, 255);
   color:white;
   cursor: pointer;
+}
+
+.btn-edit {
+  color: white;
+  background-color: rgb(32,38,43);
+  padding: .5em 1em;
+  border-radius: .25em;
+  border: none;
+}
+
+.profile .btn-edit {
+  position: relative;
+  left: 30vw;
+  bottom: 4vh;
+}
+
+.picture .btn-edit {
+  position: relative;
+  left: 30vw;
+  bottom: 3.15em;
+}
+
+.picture .comment .btn-edit {
+  bottom: 3em;
+}
+
+.btn-dlt {
+  font-size: 1.2em;
+  width: 1.8em;
+  color: white;
+  background-color: rgb(255, 104, 137);
+  margin: 0 auto;
+  padding: .2em .3em;
+  border-radius: .4em;
+  border: none;
+}
+
+.btn-dlt:hover {
+  color: rgb(255, 104, 137);
+  background-color: white;
+}
+
+.polaroid .btn-dlt {
+  position: relative;
+  bottom: 20.1vw;
+  left: 9.5vw;
+}
+
+.comment .btn-dlt {
+  position: relative;
+  bottom: 2.2em;
+  left: 30vw;
+}
+
+@media (max-width: 768px) {
+  .picture .btn-edit {
+    bottom: 0;
+  }
+  .comment .btn-dlt {
+    bottom: 0;
+  }
+  .picture .comment .btn-edit {
+    bottom: 1.5em;
+  }
+}
+
+.polaroid.animate__infinite.animate__pulse {
+  --animate-duration: 4s;
+}
+
+.animate__infinite.animate__swing {
+  --animate-duration: 1.5s;
+}
+
+.picture .comment p {
+  margin: 1.88em 0;
+}
+
+.picture p {
+  margin: 1.17em 0;
 }
 
 .image-upload {
