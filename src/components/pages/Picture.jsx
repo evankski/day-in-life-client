@@ -111,7 +111,7 @@ export default function Picture({ setUsers, currentUser }) {
   });
 
   return (
-    <>
+    <div className='picture'>
       {ownerId ? (
         <div>
           <img
@@ -130,19 +130,19 @@ export default function Picture({ setUsers, currentUser }) {
           )}
           {currentUser ? (
             ownerId === currentUser.id ? (
-              <button onClick={() => setEditCaption(!editCaption)}>
-                {editCaption ? "Back" : "Edit"}
+              <button className='btn-edit' onClick={() => setEditCaption(!editCaption)}>
+                {editCaption ? "back" : "edit caption"}
               </button>
             ) : null
           ) : null}
         </div>
       ) : null}
-      <div>{commentsList}</div>
+      {commentsList}
       <CommentForm
         handleSubmit={postComment}
         commentForm={newComment}
         setCommentForm={setNewComment}
       />
-    </>
+    </div>
   );
 }

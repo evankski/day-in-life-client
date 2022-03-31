@@ -14,7 +14,7 @@ export default function Landing ({ currentUser }) {
                 {/* <img src={landing[0].image} alt="" width={`10%`} className="image0"/> */}
                 <h1 className="landing-text-one">A Day In The <span className="life">Life</span></h1>
                 <p className="landing-p-one">{landing[0].content}</p>
-                <a href={landing[0].github} className="github-button">View on Github</a>
+                <a href={landing[0].github} target="_blank" rel="noreferrer" className="github-button">View on Github</a>
                 <img src="" alt="" />
             </div>
 
