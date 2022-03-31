@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Candal&family=Cutive+Mono&family=Spartan:wght@600&display=swap");
+
 :root {
   /* background-color: rgb(49, 56, 64); */
   background: rgba(49, 56, 64, 1);
@@ -162,12 +164,13 @@ nav {
 
 /* class for title in feed */
 .dil {
-  font-family: "Cutive Mono", cursive;
+  font-family: "Candal", sans-serif;
   color: white;
+  text-shadow: 3px 4px 18px #000000;
 }
 
 .owner-name {
-  font-family: "Cutive Mono", cursive;
+  font-family: "Candal", sans-serif;
   color: white;
 }
 
@@ -335,7 +338,7 @@ nav {
     color: white;
     background-color: rgba(49, 56, 64, 1);
     width: 20vw;
-    padding: .5em 0;
+    padding: 0.5em 0;
   }
 }
 
