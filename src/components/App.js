@@ -91,7 +91,12 @@ function App() {
 
             <Route
               path="/profiles/:id"
-              element={<Profile currentUser={currentUser} />}
+              element={
+                <Profile
+                  currentUser={currentUser}
+                  handleLogout={handleLogout}
+                />
+              }
             />
 
             <Route

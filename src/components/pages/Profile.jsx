@@ -1,11 +1,13 @@
 import Photo from "../partials/Photo";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function Profile({ currentUser }) {
+export default function Profile({ currentUser, handleLogout }) {
   // PARAMS
   const { id } = useParams();
+
+  let navigate = useNavigate();
 
   // STATE
   const [photos, setPhotos] = useState([]);
@@ -57,7 +59,7 @@ export default function Profile({ currentUser }) {
         },
       };
       await axios.delete(
-        `${process.env.REACT_APP_SERVER_URL}/api-v1/users/${photoId}`,
+        `${process.env.REACT_APP_SERVER_URL}/api-v1/pictures/${photoId}`,
         options
       );
       setShowEdit(false);
@@ -79,6 +81,8 @@ export default function Profile({ currentUser }) {
         `${process.env.REACT_APP_SERVER_URL}/api-v1/users/${ownerId}`,
         options
       );
+      handleLogout();
+      navigate("/");
     } catch (err) {
       console.log(err);
     }
