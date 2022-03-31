@@ -30,6 +30,7 @@ export default function UploadProfilePoic({ currentUser }) {
       fd.append("image", formImg);
       const response = await axios.put(
         `${process.env.REACT_APP_SERVER_URL}/api-v1/users/${currentUser}`,
+        { profile_url: currentUser.profile_url },
         fd,
         options
       );

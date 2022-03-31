@@ -57,7 +57,7 @@ export default function Profile({ currentUser }) {
         },
       };
       await axios.delete(
-        `${process.env.REACT_APP_SERVER_URL}/api-v1/pictures/${photoId}`,
+        `${process.env.REACT_APP_SERVER_URL}/api-v1/users/${photoId}`,
         options
       );
       setShowEdit(false);
@@ -67,7 +67,26 @@ export default function Profile({ currentUser }) {
     }
   };
 
-  const currentUserPic = `https://res.cloudinary.com/dhs1wrqhp/image/upload/w_700,h_700,c_fill/f_auto/${profilePic}.png`;
+  const handleDeleteProfile = async (userId) => {
+    try {
+      const token = localStorage.getItem("jwt");
+      const options = {
+        headers: {
+          Authorization: token,
+        },
+      };
+      await axios.delete(
+        `${process.env.REACT_APP_SERVER_URL}/api-v1/pictures/${userId}`,
+        options
+      );
+      setShowEdit(false);
+      setShowEdit(true);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const currentUserPic = `https://res.cloudinary.com/dhs1wrqhp/image/upload/w_200,h_200,c_fill/f_auto/${profilePic}.png`;
   // COMPONENTS
   // Lists all photos of a individual user
   const userPhotos = photos.map((photo, idx) => {
@@ -98,6 +117,11 @@ export default function Profile({ currentUser }) {
         ) : null
       ) : null}
       <div className="polaroid-container">{userPhotos}</div>
+      {showEdit ? (
+        <button onClick={() => handleDeleteProfile()}>delete profile</button>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
