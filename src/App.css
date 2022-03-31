@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Candal&family=Cutive+Mono&family=Spartan:wght@600&display=swap");
+
 :root {
   /* background-color: rgb(49, 56, 64); */
   background: rgba(49, 56, 64, 1);
@@ -34,7 +36,7 @@ hr {
 }
 
 h5 {
-  margin: .4em 0;
+  margin: 0.4em 0;
 }
 
 h6 {
@@ -72,7 +74,7 @@ nav {
   padding: 1rem;
   margin: 0px;
   border: none;
-  background-color: rgba(34, 39, 45, .8);
+  background-color: rgba(34, 39, 45, 0.8);
   font-family: Arial, Helvetica, sans-serif;
   color: rgb(250, 249, 239);
   position: sticky;
@@ -95,7 +97,6 @@ nav {
 .profile-example {
   padding-bottom: 100px;
 }
-
 
 /* .app-explanation {
   padding-left: 10em;
@@ -137,7 +138,8 @@ nav {
   width: 18.9vw;
   height: 23.1vw;
   background-color: rgb(255, 254, 239);
-  border-radius: 0.25em;
+  border-radius: 0.15em;
+  box-shadow: 5px 10px 18px #000000;
 }
 
 /* the feed/profile page div */
@@ -162,12 +164,13 @@ nav {
 
 /* class for title in feed */
 .dil {
-  font-family: "Cutive Mono", cursive;
+  font-family: "Candal", sans-serif;
   color: white;
+  text-shadow: 3px 4px 18px #000000;
 }
 
 .owner-name {
-  font-family: "Cutive Mono", cursive;
+  font-family: "Candal", sans-serif;
   color: white;
 }
 
@@ -220,24 +223,27 @@ nav {
   background-color: rgb(32, 38, 43);
   /* width: 15em; */
   margin: 1em;
-  padding: .75em 3em;
+  padding: 0.75em 3em;
   border-radius: 0.5em;
   border: none;
-  font-size: .75em;
+  font-size: 0.75em;
   position: absolute;
 }
 
-.btn:hover, .btn-sm:hover, .btn-edit:hover, .image-upload:hover {
+.btn:hover,
+.btn-sm:hover,
+.btn-edit:hover,
+.image-upload:hover {
   background-color: rgb(86, 88, 255);
-  color:white;
+  color: white;
   cursor: pointer;
 }
 
 .btn-edit {
   color: white;
-  background-color: rgb(32,38,43);
-  padding: .5em 1em;
-  border-radius: .25em;
+  background-color: rgb(32, 38, 43);
+  padding: 0.5em 1em;
+  border-radius: 0.25em;
   border: none;
 }
 
@@ -263,8 +269,8 @@ nav {
   color: white;
   background-color: rgb(255, 104, 137);
   margin: 0 auto;
-  padding: .2em .3em;
-  border-radius: .4em;
+  padding: 0.2em 0.3em;
+  border-radius: 0.4em;
   border: none;
 }
 
@@ -321,8 +327,8 @@ nav {
   color: white;
   background-color: rgba(49, 56, 64, 1);
   width: 6em;
-  padding: .5em 1.5em;
-  border-radius: .75em;
+  padding: 0.5em 1.5em;
+  border-radius: 0.75em;
   border: none;
 }
 
@@ -332,7 +338,7 @@ nav {
     color: white;
     background-color: rgba(49, 56, 64, 1);
     width: 20vw;
-    padding: .5em 0;
+    padding: 0.5em 0;
   }
 }
 
@@ -345,8 +351,7 @@ nav {
 
 .landing-text-one {
   font-size: 3.9rem;
-
-} 
+}
 
 .github-button:hover {
   background-color: rgb(86, 88, 255);
@@ -361,7 +366,7 @@ nav {
 .app-explanation-two {
   margin-top: 3rem;
   display: flex;
-  flex-direction:row; 
+  flex-direction: row;
   gap: 0rem 3rem;
   color: rgb(201, 201, 201);
 }
@@ -390,5 +395,41 @@ nav {
 }
 
 .indv-user {
-  color: rgb(86, 88, 255);
+  color: rgba(86, 89, 255, 0.995);
+}
+
+#profile-pic {
+  max-width: 20vw;
+  border-radius: 50%;
+  border: rgb(86, 88, 255) solid 1.5px;
+  box-shadow: 5px 10px 18px #000000;
+}
+
+#profile-pic-link {
+  color: white;
+  background-color: rgb(32, 38, 43);
+  padding: 0.5em 1em;
+  border-radius: 0.25em;
+  border: none;
+  text-decoration: none;
+  font-size: 0.75em;
+}
+
+#profile-pic-link:hover {
+  background-color: rgb(86, 88, 255);
+}
+
+#delete-btn {
+  color: white;
+  background-color: rgb(255, 104, 137);
+  padding: 0.5em 1em;
+  border-radius: 0.25em;
+  border: none;
+  text-decoration: none;
+}
+
+#delete-btn:hover {
+  color: white;
+  background-color: red;
+  box-shadow: 5px 7px 18px #000000;
 }
