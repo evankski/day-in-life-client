@@ -5,8 +5,9 @@ import { useParams } from "react-router-dom";
 import Comment from "../partials/Comment";
 import EditCaptionForm from "../partials/EditCaptionForm";
 import CommentForm from "../partials/CommentForm";
+import SoloPicture from "./SoloPicture";
 
-export default function Picture({ setUsers, currentUser }) {
+export default function Picture({ currentUser }) {
   // PARAMS
   const { id } = useParams();
 
@@ -19,6 +20,7 @@ export default function Picture({ setUsers, currentUser }) {
   const [captionForm, setCaptionForm] = useState("");
   const [newComment, setNewComment] = useState("");
   const [actions, setActions] = useState(0);
+  const [soloPic, setSoloPic] = useState(false);
 
   // USE-EFFECT
   useEffect(() => {
@@ -95,6 +97,10 @@ export default function Picture({ setUsers, currentUser }) {
     }
   };
 
+  const handleSoloPicture = () => {
+    setSoloPic(!soloPic);
+  };
+
   // COMPONENTS
   // Lists all comments of a indivdual picture post
   const commentsList = photo.comments.map((comment, idx) => {
@@ -111,10 +117,17 @@ export default function Picture({ setUsers, currentUser }) {
   });
 
   return (
-    <div className='picture'>
+    <div className="picture">
       {ownerId ? (
         <div>
+          {soloPic && (
+            <SoloPicture
+              photoPublicId={photo.public_id}
+              handleSoloPicture={handleSoloPicture}
+            />
+          )}
           <img
+            onClick={handleSoloPicture}
             src={`https://res.cloudinary.com/dhs1wrqhp/image/upload/f_auto/${photo.public_id}`}
             alt="user photo"
             className="individual animate__animated animate__fadeIn"
@@ -130,7 +143,10 @@ export default function Picture({ setUsers, currentUser }) {
           )}
           {currentUser ? (
             ownerId === currentUser.id ? (
-              <button className='btn-edit' onClick={() => setEditCaption(!editCaption)}>
+              <button
+                className="btn-edit"
+                onClick={() => setEditCaption(!editCaption)}
+              >
                 {editCaption ? "back" : "edit caption"}
               </button>
             ) : null
