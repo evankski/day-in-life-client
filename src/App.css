@@ -172,6 +172,7 @@ nav {
 .owner-name {
   font-family: "Candal", sans-serif;
   color: white;
+  text-shadow: 3px 4px 18px #000000;
 }
 
 /* .sign-up {
@@ -351,6 +352,8 @@ nav {
 
 .landing-text-one {
   font-size: 3.9rem;
+  font-family: "Candal", sans-serif;
+  text-shadow: 3px 4px 18px #000000;
 }
 
 .github-button:hover {
@@ -377,6 +380,8 @@ nav {
 
 .about-h1 {
   font-size: 3rem;
+  font-family: "Candal", sans-serif;
+  text-shadow: 3px 4px 18px #000000;
 }
 
 .landing-text {

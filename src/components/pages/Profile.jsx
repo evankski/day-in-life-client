@@ -41,7 +41,7 @@ export default function Profile({ currentUser, handleLogout }) {
         console.log(err);
       }
     })();
-  }, [showEdit]);
+  }, [showEdit, id]);
 
   // FUNCTION
   // Toggles delete buttons
@@ -117,17 +117,17 @@ export default function Profile({ currentUser, handleLogout }) {
       {currentUser ? (
         ownerId === currentUser.id ? (
           <>
-            {showEdit ? (
-              <div>
-                <Link to={`/uploadprofilepic/${ownerId}`} id="profile-pic-link">
-                  Update Your Picture
-                </Link>
-              </div>
-            ) : null}
-
             <button className="btn-edit" onClick={() => onButtonClick()}>
               {showEdit ? "done editing" : "edit"}
             </button>
+
+            {showEdit ? (
+              <div>
+                <Link to={`/uploadprofilepic/${ownerId}`} id="profile-pic-link">
+                  update profile picture
+                </Link>
+              </div>
+            ) : null}
           </>
         ) : null
       ) : null}

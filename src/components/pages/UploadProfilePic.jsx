@@ -13,12 +13,12 @@ export default function UploadProfilePoic({ currentUser }) {
   //     "https://c.tenor.com/ga3h1_li7SUAAAAC/discord-loading.gif"
   //   );
   // const [msg, setMsg] = useState('')
-  console.log(currentUser);
+  // console.log(currentUser);
 
   // FUNCTIONS
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(currentUser);
+    // console.log(currentUser);
     try {
       const token = localStorage.getItem("jwt");
       const options = {
