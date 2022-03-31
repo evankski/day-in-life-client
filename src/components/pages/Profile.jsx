@@ -67,7 +67,7 @@ export default function Profile({ currentUser }) {
     }
   };
 
-  const handleDeleteProfile = async (userId) => {
+  const handleDeleteProfile = async () => {
     try {
       const token = localStorage.getItem("jwt");
       const options = {
@@ -76,11 +76,9 @@ export default function Profile({ currentUser }) {
         },
       };
       await axios.delete(
-        `${process.env.REACT_APP_SERVER_URL}/api-v1/pictures/${userId}`,
+        `${process.env.REACT_APP_SERVER_URL}/api-v1/users/${ownerId}`,
         options
       );
-      setShowEdit(false);
-      setShowEdit(true);
     } catch (err) {
       console.log(err);
     }
@@ -118,7 +116,7 @@ export default function Profile({ currentUser }) {
       ) : null}
       <div className="polaroid-container">{userPhotos}</div>
       {showEdit ? (
-        <button onClick={() => handleDeleteProfile()}>delete profile</button>
+        <button onClick={() => handleDeleteProfile()}>DELETE PROFILE</button>
       ) : (
         <></>
       )}
