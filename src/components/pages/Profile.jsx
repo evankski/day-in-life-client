@@ -67,6 +67,24 @@ export default function Profile({ currentUser }) {
     }
   };
 
+  const handleProfilePic = async (profileUrl) => {
+    try {
+      const token = localStorage.getItem("jwt");
+      const options = {
+        headers: {
+          Authorization: token,
+        },
+      };
+      await axios.put(
+        `${process.env.REACT_APP_SERVER_URL}/api-v1/users/${profileUrl}`,
+        options
+      );
+      setProfilePic();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const currentUserPic = `https://res.cloudinary.com/dhs1wrqhp/image/upload/w_700,h_700,c_fill/f_auto/${profilePic}.png`;
   // COMPONENTS
   // Lists all photos of a individual user
@@ -89,9 +107,14 @@ export default function Profile({ currentUser }) {
       <img src={currentUserPic} className="profile-pic" />
       {currentUser ? (
         ownerId === currentUser.id ? (
-          <button onClick={() => onButtonClick()}>
-            {showEdit ? "done editing" : "edit"}
-          </button>
+          <>
+            <button onClick={() => handleProfilePic()}>
+              Update Your Picture
+            </button>
+            <button onClick={() => onButtonClick()}>
+              {showEdit ? "done editing" : "edit"}
+            </button>
+          </>
         ) : null
       ) : null}
       <div className="polaroid-container">{userPhotos}</div>
