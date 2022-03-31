@@ -106,7 +106,7 @@ function App() {
             />
 
             <Route
-              path="/new"
+              path="/uploadprofilepic/:id"
               element={<UploadProfilePic currentUser={currentUser} />}
             />
           </Routes>
