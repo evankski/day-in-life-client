@@ -390,7 +390,7 @@ nav {
   border-radius: 0.25em;
   border: none;
   text-decoration: none;
-  font-size: 0.5em;
+  font-size: 0.75em;
 }
 
 #profile-pic-link:hover {
@@ -409,4 +409,5 @@ nav {
 #delete-btn:hover {
   color: white;
   background-color: red;
+  box-shadow: 5px 7px 18px #000000;
 }
