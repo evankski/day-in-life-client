@@ -105,6 +105,14 @@ export default function Profile({ currentUser }) {
       <h1 className="owner-name">
         <span className="indv-user">{ownerName}</span>'s Profile
       </h1>
+      <img
+        id="profile-pic"
+        src={
+          !profilePic
+            ? `https://upload.wikimedia.org/wikipedia/commons/8/89/HD_transparent_picture.png`
+            : currentUserPic
+        }
+      />
       {currentUser ? (
         ownerId === currentUser.id ? (
           <>

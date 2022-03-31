@@ -9,14 +9,16 @@ export default function UploadProfilePoic({ currentUser }) {
   // STATE
   const [formImg, setFormImg] = useState("");
   const [fileName, setFileName] = useState("");
-  const [displayImg, setDisplayImg] = useState(
-    "https://c.tenor.com/ga3h1_li7SUAAAAC/discord-loading.gif"
-  );
+  //   const [displayImg, setDisplayImg] = useState(
+  //     "https://c.tenor.com/ga3h1_li7SUAAAAC/discord-loading.gif"
+  //   );
   // const [msg, setMsg] = useState('')
+  console.log(currentUser);
 
   // FUNCTIONS
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(currentUser);
     try {
       const token = localStorage.getItem("jwt");
       const options = {
@@ -28,13 +30,12 @@ export default function UploadProfilePoic({ currentUser }) {
       const fd = new FormData();
       //   append the data
       fd.append("image", formImg);
-      const response = await axios.put(
-        `${process.env.REACT_APP_SERVER_URL}/api-v1/users/${currentUser}`,
-        { profile_url: currentUser.profile_url },
+      await axios.put(
+        `${process.env.REACT_APP_SERVER_URL}/api-v1/users/${currentUser.id}`,
         fd,
         options
       );
-      navigate(`/profiles/${currentUser._id}`);
+      navigate(`/profiles/${currentUser.id}`);
       //   <Navigate to={`/profiles/${currentUser.id}`} />
     } catch (err) {
       console.log(err);
@@ -44,35 +45,35 @@ export default function UploadProfilePoic({ currentUser }) {
 
   const handleChange = async (e) => {
     setFileName(e.target.files[0].name);
-    setDisplayImg("https://c.tenor.com/ga3h1_li7SUAAAAC/discord-loading.gif");
+    // setDisplayImg("https://c.tenor.com/ga3h1_li7SUAAAAC/discord-loading.gif");
     setFormImg(e.target.files[0]);
   };
 
-  useEffect(() => {
-    (async () => {
-      if (formImg) {
-        try {
-          const token = localStorage.getItem("jwt");
-          const options = {
-            headers: {
-              Authorization: token,
-            },
-          };
-          const fd = new FormData();
-          fd.append("image", formImg);
-          const response = await axios.put(
-            `${process.env.REACT_APP_SERVER_URL}/api-v1/users/${currentUser}`,
-            fd,
-            options
-          );
-          // console.log(response.data)
-          setDisplayImg(response.data.cloudImage);
-        } catch (err) {
-          console.log(err);
-        }
-      }
-    })();
-  }, [formImg]);
+  //   useEffect(() => {
+  //     (async () => {
+  //       if (formImg) {
+  //         try {
+  //           const token = localStorage.getItem("jwt");
+  //           const options = {
+  //             headers: {
+  //               Authorization: token,
+  //             },
+  //           };
+  //           const fd = new FormData();
+  //           fd.append("image", formImg);
+  //           const response = await axios.post(
+  //             `${process.env.REACT_APP_SERVER_URL}/api-v1/users/${currentUser}`,
+  //             fd,
+  //             options
+  //           );
+  //           // console.log(response.data)
+  //           setDisplayImg(response.data.cloudImage);
+  //         } catch (err) {
+  //           console.log(err);
+  //         }
+  //       }
+  //     })();
+  //   }, [formImg]);
 
   return (
     <div className="bg-light margin-lr">
@@ -90,8 +91,8 @@ export default function UploadProfilePoic({ currentUser }) {
             onChange={handleChange}
             style={{ display: "none" }}
           />
-          {formImg && <img src={displayImg} alt={fileName} />}
-
+          {/* {formImg && <img src={displayImg} alt={fileName} />} */}
+          <label id="file-name">{fileName}</label>
           <button className="btn" type="submit">
             Upload Picture
           </button>
