@@ -1,9 +1,13 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 export default function UploadProfilePoic() {
   let navigate = useNavigate();
 
   // STATE
   const [formImg, setFormImg] = useState("");
-  const [caption, setCaption] = useState("");
   const [fileName, setFileName] = useState("");
   const [displayImg, setDisplayImg] = useState(
     "https://c.tenor.com/ga3h1_li7SUAAAAC/discord-loading.gif"
@@ -24,9 +28,8 @@ export default function UploadProfilePoic() {
       const fd = new FormData();
       //   append the data
       fd.append("image", formImg);
-      fd.append("caption", caption);
       const response = await axios.post(
-        `${process.env.REACT_APP_SERVER_URL}/api-v1/pictures`,
+        `${process.env.REACT_APP_SERVER_URL}/api-v1/users`,
         fd,
         options
       );
@@ -56,8 +59,8 @@ export default function UploadProfilePoic() {
           };
           const fd = new FormData();
           fd.append("image", formImg);
-          const response = await axios.post(
-            `${process.env.REACT_APP_SERVER_URL}/api-v1/pictures/preview`,
+          const response = await axios.put(
+            `${process.env.REACT_APP_SERVER_URL}/api-v1/users`,
             fd,
             options
           );
