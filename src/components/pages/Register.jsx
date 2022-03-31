@@ -37,7 +37,7 @@ export default function Register ({ currentUser, setCurrentUser }) {
 
     return (
         <div className='bg-light margin-lr'>
-            <h2 className='sign-up'>Sign <span className='life'>Up</span> </h2>
+            <h2 className='sign-up'>Sign Up</h2>
             <p>{msg ? `message from server: ${msg}` : ''}</p>
             <form onSubmit={handleFormSubmit}>
                 <div className='column'>

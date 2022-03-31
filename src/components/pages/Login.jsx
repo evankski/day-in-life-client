@@ -44,7 +44,7 @@ export default function Login ({ currentUser, setCurrentUser }) {
     if (currentUser) return <Navigate to='/feed' />
     return (
         <div className='bg-light margin-lr'>
-            <h2>Log <span className='life'>In</span></h2>
+            <h2>Log In</h2>
             <p>{msg ? `message from server: ${msg}` : ''}</p>
             <form onSubmit={handleFormSubmit}>
                 <div className='column'>
