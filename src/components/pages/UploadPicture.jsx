@@ -78,7 +78,7 @@ function UploadPicture({currentUser}) {
                 <div className="column">
                     <label htmlFor="image" className='image-upload'>
                         Choose File
-                    </label>    
+                    </label> 
                     <input 
                         // no value on this controlled form
                         type="file" 
@@ -97,7 +97,7 @@ function UploadPicture({currentUser}) {
                         value={caption}
                         />
                     <button className='btn' type="submit">Upload Picture</button>
-
+                    <p className="max-file"><em>Max file size: 10MB</em></p>   
                 </div>
             </form>
         </div>
