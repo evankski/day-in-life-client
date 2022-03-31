@@ -45,8 +45,8 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
+nav a:hover {
+  color: rgb(86, 88, 255);
 }
 
 nav {
@@ -267,4 +267,8 @@ nav {
 
 .indv-user {
   color: rgb(86, 88, 255);
+}
+
+.member-name {
+  font-size: 1.2rem;
 }
