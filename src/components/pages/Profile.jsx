@@ -105,18 +105,27 @@ export default function Profile({ currentUser }) {
       <h1 className="owner-name">
         <span className="indv-user">{ownerName}</span>'s Profile
       </h1>
-      <img
-        id="profile-pic"
-        src={
-          !profilePic
-            ? `https://upload.wikimedia.org/wikipedia/commons/8/89/HD_transparent_picture.png`
-            : currentUserPic
-        }
-      />
+      <div>
+        <img
+          id="profile-pic"
+          src={
+            !profilePic
+              ? `https://upload.wikimedia.org/wikipedia/commons/8/89/HD_transparent_picture.png`
+              : currentUserPic
+          }
+        />
+      </div>
       {currentUser ? (
         ownerId === currentUser.id ? (
           <>
-            <Link to={`/uploadprofilepic/${ownerId}`}>Update Your Picture</Link>
+            {showEdit ? (
+              <div>
+                <Link to={`/uploadprofilepic/${ownerId}`} id="profile-pic-link">
+                  Update Your Picture
+                </Link>
+              </div>
+            ) : null}
+
             <button className="btn-edit" onClick={() => onButtonClick()}>
               {showEdit ? "done editing" : "edit"}
             </button>
@@ -125,7 +134,9 @@ export default function Profile({ currentUser }) {
       ) : null}
       <div className="polaroid-container">{userPhotos}</div>
       {showEdit ? (
-        <button onClick={() => handleDeleteProfile()}>DELETE PROFILE</button>
+        <button id="delete-btn" onClick={() => handleDeleteProfile()}>
+          delete profile
+        </button>
       ) : null}
     </div>
   );

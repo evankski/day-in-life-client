@@ -130,7 +130,8 @@ nav {
   width: 18.9vw;
   height: 23.1vw;
   background-color: rgb(255, 254, 239);
-  border-radius: 0.25em;
+  border-radius: 0.15em;
+  box-shadow: 5px 10px 18px #000000;
 }
 
 /* the feed/profile page div */
@@ -372,9 +373,40 @@ nav {
 }
 
 .indv-user {
-  color: rgb(86, 88, 255);
+  color: rgba(86, 89, 255, 0.995);
 }
 
 #profile-pic {
   max-width: 20vw;
+  border-radius: 50%;
+  border: rgb(86, 88, 255) solid 1.5px;
+  box-shadow: 5px 10px 18px #000000;
+}
+
+#profile-pic-link {
+  color: white;
+  background-color: rgb(32, 38, 43);
+  padding: 0.5em 1em;
+  border-radius: 0.25em;
+  border: none;
+  text-decoration: none;
+  font-size: 0.5em;
+}
+
+#profile-pic-link:hover {
+  background-color: rgb(86, 88, 255);
+}
+
+#delete-btn {
+  color: white;
+  background-color: rgb(255, 104, 137);
+  padding: 0.5em 1em;
+  border-radius: 0.25em;
+  border: none;
+  text-decoration: none;
+}
+
+#delete-btn:hover {
+  color: white;
+  background-color: red;
 }
