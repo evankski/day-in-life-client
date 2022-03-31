@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-export default function UploadProfilePoic() {
+export default function UploadProfilePoic({ currentUser }) {
   let navigate = useNavigate();
 
   // STATE
@@ -28,12 +28,12 @@ export default function UploadProfilePoic() {
       const fd = new FormData();
       //   append the data
       fd.append("image", formImg);
-      const response = await axios.post(
-        `${process.env.REACT_APP_SERVER_URL}/api-v1/users`,
+      const response = await axios.put(
+        `${process.env.REACT_APP_SERVER_URL}/api-v1/users/${currentUser}`,
         fd,
         options
       );
-      navigate(`/profiles/${currentUser.id}`);
+      navigate(`/profiles/${currentUser._id}`);
       //   <Navigate to={`/profiles/${currentUser.id}`} />
     } catch (err) {
       console.log(err);
@@ -90,15 +90,7 @@ export default function UploadProfilePoic() {
             style={{ display: "none" }}
           />
           {formImg && <img src={displayImg} alt={fileName} />}
-          <label id="file-name">{fileName}</label>
-          <input
-            type="text"
-            id="caption"
-            autoComplete="off"
-            placeholder="Enter caption here..."
-            onChange={(e) => setCaption(e.target.value)}
-            value={caption}
-          />
+
           <button className="btn" type="submit">
             Upload Picture
           </button>

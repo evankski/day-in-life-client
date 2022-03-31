@@ -90,7 +90,7 @@ export default function Profile({ currentUser }) {
       {currentUser ? (
         ownerId === currentUser.id ? (
           <>
-            <Link to={"/uploadprofilepic"}>Update Your Picture</Link>
+            <Link to={`/uploadprofilepic/${ownerId}`}>Update Your Picture</Link>
             <button onClick={() => onButtonClick()}>
               {showEdit ? "done editing" : "edit"}
             </button>
