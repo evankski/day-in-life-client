@@ -112,7 +112,7 @@ export default function Picture({ setUsers, currentUser }) {
 
   return (
     <>
-      {photo ? (
+      {ownerId ? (
         <div>
           <img
             src={`https://res.cloudinary.com/dhs1wrqhp/image/upload/f_auto/${photo.public_id}`}
