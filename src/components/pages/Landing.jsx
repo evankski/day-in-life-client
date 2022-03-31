@@ -27,7 +27,7 @@ export default function Landing ({ currentUser }) {
                 <h4 className="landing-text">{landing[1].contentThree}</h4>
             </div>
 
-            <img src='https://i.imgur.com/2ROHQIx.png' alt="Screenshot of how the app looks" className="imgur animate__animated animate__fadeIn"/>
+            <img src='https://i.imgur.com/PGSjkmO.png' alt="Screenshot of how the app looks" className="imgur animate__animated animate__fadeIn"/>
 
             <div className="app-explanation">
                 

@@ -7,8 +7,8 @@ export default function Bio({ member }) {
 
             <div className="socials">
                 <a href={`mailto:${member.email}`}> <i className='fas fa-envelope'></i> </a>
-                <a href={member.linkedin}> <i className='fab fa-linkedin'></i> </a>
-                <a href={member.github}> <i className='fab fa-github'></i> </a>
+                <a target="_blank" rel="noreferrer" href={member.linkedin}> <i className='fab fa-linkedin'></i> </a>
+                <a target="_blank" rel="noreferrer" href={member.github}> <i className='fab fa-github'></i> </a>
             </div>
         </div>
     )
