@@ -66,8 +66,8 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
+nav a:hover {
+  color: rgb(86, 88, 255);
 }
 
 nav {
@@ -392,6 +392,19 @@ nav {
 .imgur {
   margin: 0 auto;
   width: 40rem;
+}
+
+.member-name {
+  font-size: 1.2rem;
+}
+
+.socials a{
+  color: white;
+  font-size: 2rem;
+}
+
+.bios {
+  width: 30rem;
 }
 
 .indv-user {
