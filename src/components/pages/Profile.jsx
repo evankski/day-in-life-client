@@ -101,14 +101,15 @@ export default function Profile({ currentUser }) {
     );
   });
   return (
-    <div>
-      <h1 className="owner-name">{ownerName}</h1>
-      <img src={currentUserPic} className="profile-pic" />
+    <div className="profile animate__animated animate__fadeIn">
+      <h1 className="owner-name">
+        <span className="indv-user">{ownerName}</span>'s Profile
+      </h1>
       {currentUser ? (
         ownerId === currentUser.id ? (
           <>
             <Link to={`/uploadprofilepic/${ownerId}`}>Update Your Picture</Link>
-            <button onClick={() => onButtonClick()}>
+            <button className="btn-edit" onClick={() => onButtonClick()}>
               {showEdit ? "done editing" : "edit"}
             </button>
           </>
@@ -117,9 +118,7 @@ export default function Profile({ currentUser }) {
       <div className="polaroid-container">{userPhotos}</div>
       {showEdit ? (
         <button onClick={() => handleDeleteProfile()}>DELETE PROFILE</button>
-      ) : (
-        <></>
-      )}
+      ) : null}
     </div>
   );
 }
