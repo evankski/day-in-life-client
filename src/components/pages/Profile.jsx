@@ -57,7 +57,7 @@ export default function Profile({ currentUser }) {
         },
       };
       await axios.delete(
-        `${process.env.REACT_APP_SERVER_URL}/api-v1/users/${photoId}`,
+        `${process.env.REACT_APP_SERVER_URL}/api-v1/pictures/${photoId}`,
         options
       );
       setShowEdit(false);
