@@ -81,7 +81,7 @@ export default function Profile({ currentUser, setCurrentUser }) {
     );
   });
   return (
-    <div>
+    <div className='animate__animated animate__fadeIn'>
       <h1 className="owner-name"><span className="indv-user">{ownerName}</span>'s Profile</h1>
       {currentUser ? (
         ownerId === currentUser.id ? (

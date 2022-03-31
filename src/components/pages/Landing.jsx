@@ -8,9 +8,9 @@ import { Link } from "react-router-dom"
 export default function Landing ({ currentUser }) {
     if (currentUser) return <Navigate to='/feed' />
     return (
-        <div className="landing-page">
+        <div className="landing-page animate__animated animate__fadeIn">
 
-            <div className="app-explanation-one animate__animated animate__fadeIn">
+            <div className="app-explanation-one">
                 {/* <img src={landing[0].image} alt="" width={`10%`} className="image0"/> */}
                 <h1 className="landing-text-one">A Day In The <span className="life">Life</span></h1>
                 <p className="landing-p-one">{landing[0].content}</p>
@@ -18,7 +18,7 @@ export default function Landing ({ currentUser }) {
                 <img src="" alt="" />
             </div>
 
-            <div className="app-explanation-two animate__animated animate__fadeIn">
+            <div className="app-explanation-two">
             
                 <h4 className="landing-text">{landing[1].contentOne}</h4>
             
@@ -29,7 +29,7 @@ export default function Landing ({ currentUser }) {
 
             <img src='https://i.imgur.com/2ROHQIx.png' alt="" className="imgur"/>
 
-            <div className="app-explanation animate__animated animate__fadeIn">
+            <div className="app-explanation">
                 
                 <h3 className="landing-text-bot">{landing[2].content}</h3>
                 <Link to='/register' className='github-button'>Register Here</Link>

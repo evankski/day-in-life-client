@@ -196,7 +196,20 @@ nav {
   font-size: 1em;
 }
 
-.btn:hover, .image-upload:hover {
+.btn-sm {
+  margin: 1em auto 1.5em auto;
+  color: white;
+  background-color: rgb(32, 38, 43);
+  /* width: 15em; */
+  margin: 1em;
+  padding: .75em 3em;
+  border-radius: 0.5em;
+  border: none;
+  font-size: .75em;
+  position: absolute;
+}
+
+.btn:hover, .btn-sm:hover, .image-upload:hover {
   background-color: rgb(86, 88, 255);
   color:white;
   cursor: pointer;

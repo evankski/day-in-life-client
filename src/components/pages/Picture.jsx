@@ -117,7 +117,7 @@ export default function Picture({ setUsers, currentUser }) {
           <img
             src={`https://res.cloudinary.com/dhs1wrqhp/image/upload/f_auto/${photo.public_id}`}
             alt="user photo"
-            className="individual"
+            className="individual animate__animated animate__fadeIn"
           />
           {editCaption ? (
             <EditCaptionForm
