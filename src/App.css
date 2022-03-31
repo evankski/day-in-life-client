@@ -377,3 +377,11 @@ nav {
 .member-name {
   font-size: 1.2rem;
 }
+
+.socials a{
+  color: white;
+}
+
+.social-li {
+  width: 3rem;
+}
