@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 export default function Photo({ photo, handleDelete, showEdit, cloudImage }) {
   return (
-    <div className="polaroid">
+    <div className={showEdit ? 'polaroid animate__animated animate__infinite animate__pulse' : 'polaroid animate__animated animate__fadeIn'}>
       <Link to={`/pictures/${photo._id}`}>
-        <div className="random-class">
+        <div className="polaroid-bg">
           <img
             src={cloudImage}
             key={photo.public_id}
@@ -15,9 +15,9 @@ export default function Photo({ photo, handleDelete, showEdit, cloudImage }) {
       {showEdit && (
         <button
           onClick={() => handleDelete(photo._id)}
-          className="delete-button"
+          className="btn-dlt animate__animated animate__infinite animate__swing"
         >
-          delete
+          <i className="fas fa-times"></i>
         </button>
       )}
     </div>

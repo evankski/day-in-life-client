@@ -81,11 +81,11 @@ export default function Profile({ currentUser, setCurrentUser }) {
     );
   });
   return (
-    <div>
+    <div className='profile animate__animated animate__fadeIn'>
       <h1 className="owner-name"><span className="indv-user">{ownerName}</span>'s Profile</h1>
       {currentUser ? (
         ownerId === currentUser.id ? (
-          <button onClick={() => onButtonClick()}>
+          <button className='btn-edit' onClick={() => onButtonClick()}>
             {showEdit ? "done editing" : "edit"}  
           </button>
         ) : null

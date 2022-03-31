@@ -35,7 +35,7 @@ export default function Feed ({ currentUser }) {
     })
 
     return (
-        <div className="feed-page">
+        <div className="feed-page animate__animated animate__fadeIn">
             <h1 className='dil'>A day in the <span className='indv-user'>life</span></h1>
             <div className='polaroid-container'>
                 {usersList}    

@@ -7,7 +7,7 @@ export default function Comment({ comment, currentUser, photoId, actions, setAct
     // reformat datestring to be more readable for users
     let date = new Date(comment.createdAt)
     date = date.toString()
-    date = date.substring(0, 24)
+    date = date.substring(0, 21)
 
     // STATE
     const [editComment, setEditComment] = useState(false)
@@ -56,19 +56,23 @@ export default function Comment({ comment, currentUser, photoId, actions, setAct
     }
     
     return (
-        <>
-            <h3>{comment.name}</h3>
+        <div className='comment'>
+            <hr />
             {editComment ? 
                 (
                     <>
                         <CommentForm handleSubmit={putComment} commentForm={commentForm} setCommentForm={setCommentForm} /> 
-                        <button onClick={handleDelete}>Delete</button>
+                        <button className='btn-dlt animate__animated animate__infinite animate__pulse' onClick={handleDelete}><i className="far fa-times-circle"></i></button>
                     </>
                  ) : 
-                 <p>{comment.content}</p>}
+                    <>
+                        <p>{comment.content}</p>
+                        <h5>{'- '+comment.name}</h5>
+                    </>
+            }   
+            <h6>Date posted: {date}</h6>
             
-            <p>Date posted: {date}</p>
-            {comment.user_id === currentUser.id && <button onClick={() => setEditComment(!editComment)}>{editComment ? 'Back' : 'Edit'}</button>}
-        </>
+            {comment.user_id === currentUser.id && <button className='btn-edit' onClick={() => setEditComment(!editComment)}>{editComment ? 'back' : 'edit comment'}</button>}
+        </div>
     )
 }

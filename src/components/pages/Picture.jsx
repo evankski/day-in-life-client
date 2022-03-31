@@ -111,13 +111,13 @@ export default function Picture({ setUsers, currentUser }) {
   });
 
   return (
-    <>
-      {photo ? (
+    <div className='picture'>
+      {ownerId ? (
         <div>
           <img
             src={`https://res.cloudinary.com/dhs1wrqhp/image/upload/f_auto/${photo.public_id}`}
             alt="user photo"
-            className="individual"
+            className="individual animate__animated animate__fadeIn"
           />
           {editCaption ? (
             <EditCaptionForm
@@ -130,19 +130,19 @@ export default function Picture({ setUsers, currentUser }) {
           )}
           {currentUser ? (
             ownerId === currentUser.id ? (
-              <button onClick={() => setEditCaption(!editCaption)}>
-                {editCaption ? "Back" : "Edit"}
+              <button className='btn-edit' onClick={() => setEditCaption(!editCaption)}>
+                {editCaption ? "back" : "edit caption"}
               </button>
             ) : null
           ) : null}
         </div>
       ) : null}
-      <div>{commentsList}</div>
+      {commentsList}
       <CommentForm
         handleSubmit={postComment}
         commentForm={newComment}
         setCommentForm={setNewComment}
       />
-    </>
+    </div>
   );
 }
