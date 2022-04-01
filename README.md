@@ -2,7 +2,7 @@
 
 A day in the life is a MERN stack application. Link to server repository https://github.com/danieldenton/day-in-life-server
 
-Link to deployed version: 
+Link to deployed version: https://gregarious-starlight-3d969a.netlify.app/
 
 # What is it?
 
