@@ -19,7 +19,7 @@ export default function Picture({ currentUser }) {
   const [editCaption, setEditCaption] = useState(false);
   const [captionForm, setCaptionForm] = useState("");
   const [newComment, setNewComment] = useState("");
-  const [actions, setActions] = useState(0);
+  const [actions, setActions] = useState(0); 
   const [soloPic, setSoloPic] = useState(false);
 
   // USE-EFFECT
