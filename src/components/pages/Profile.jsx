@@ -78,7 +78,7 @@ export default function Profile({ currentUser, handleLogout }) {
         },
       };
       await axios.delete(
-        `${process.env.REACT_APP_SERVER_URL}/api-v1/users/${ownerId}`,
+        `${process.env.REACT_APP_SERVER_URL}/api-v1/users/${currentUser.id}`,
         options
       );
       handleLogout();
